@@ -1,4 +1,4 @@
-title: The Codex Semantics Library
+title: Codex
 description: A library to write abstract interpreters in OCaml.
 theme: just-the-docs
 color_scheme: myscheme
@@ -7,3 +7,5 @@ url: https://codex-semantics-library.github.io
 
 aux_links:
   Repository: https://github.com/codex-semantics-library/codex
+
+logo: "/assets/codex.png"
