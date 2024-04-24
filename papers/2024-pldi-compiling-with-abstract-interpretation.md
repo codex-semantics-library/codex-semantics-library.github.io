@@ -1,5 +1,6 @@
 ---
 layout: post
+parent: Publications
 title: "PLDI'24 Research Paper"
 categories: new publication
 paper-title: "Compiling with Abstract Interpretation"
