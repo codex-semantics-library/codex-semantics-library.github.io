@@ -1,20 +1,13 @@
 ---
-layout: post
+# All detailed paper info is in _data/publication.yml
+layout: paper
 parent: Publications
 title: "PLDI'24 Research Paper"
 categories: new publication
-paper-title: "Compiling with Abstract Interpretation"
-paper-authors: ["Dorian Lesbre", "Matthieu Lemerre"]
-topic: "Compilers; Abstract Interpretation; Static Single Assignment (SSA)"
-pdf: "/path/to/todo"
-technical-pdf: "/path/to/todo"
 date: 2024-04-22
-redirect_from: /new/publication/
-doi: 10.1145/3656392
-artifact: https://doi.org/10.5281/zenodo.10895582
 ---
 
-# Context
+## Context
 
 Software analyzers and compilers have a lot in common: they both have to read and
 understand source code in order to **prove facts about it** and **transform it** into
@@ -40,7 +33,7 @@ and all domains have a common signature/interface. This allows running multiple 
 in parallel (using a product of the relevant domain), and have them collaborate
 (domains can query other domain to see if they can prove a property).
 
-# Contributions
+## Contributions
 
 Our paper shows the following novel results:
 - A standard abstract interpretation framework can be turned into a
@@ -56,9 +49,9 @@ Our paper shows the following novel results:
   simultaneously is more precise than classical numerical analysis. Furthermore,
   this domain doesn't suffer from precision loss when analyzing compiled code.
 
-# Further information
+## Further information
 
-- Read the **paper**: either [published version](TODO) or the [version with appendices](TODO)
+- Read the **paper**: either [published version](/assets/publications/pdfs/2024-pldi-compiling-with-abstract-interpretation.pdf) or the [version with appendices](/assets/publications/2024-pldi-compiling-with-abstract-interpretation-with-appendix.pdf)
 - Download the [software artifact](https://doi.org/10.5281/zenodo.10895582) from
   Zenodo to try out our example analyzer and explore the code.
 - To appear at the [Programming Language Design and Implementation (PLDI) 2024 conference](https://pldi24.sigplan.org/)

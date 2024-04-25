@@ -1,0 +1,72 @@
+---
+layout: post
+---
+
+<section>
+  {% comment %}
+    Look for a matching entry in _data/publications.yml
+    Path to self is used to check match, as it should be unique
+  {% endcomment %}
+  {% for y in site.data.publications %}
+    {% for p in y.publications %}
+      {% if p.easy-summary == page.url %}
+        {% assign paper = p %}
+        {% assign year = y.year %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+    {% if paper %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+
+  {% if paper %}
+    <h1>{{ paper.title }}</h1>
+    <div>
+      <b>{{ paper.venue-acronym }} {{ year }}</b> 
+      &mdash;
+      {% for a in paper.authors %}
+      <i>{{ a.name }}</i>{% if forloop.last %}{% else %},{% endif %}
+      {% endfor %}
+      {% if paper.doi %}&mdash; <a href="https://dx.doi.org/{{ paper.doi }}" style="opacity: 50%;">{{ paper.doi }}</a> {% endif %}
+    </div>
+
+    <div style="margin-top: 10px;">
+      {% if paper.pdf %}
+      <a href="{{ paper.pdf }}" target="_blank"> <i class="fas fa-file-pdf"></i>
+        <b>PDF</b></a>
+      &nbsp;
+      {% endif %}
+      {% if paper.pdf-with-appendix %}
+      <a href="{{ paper.pdf }}" target="_blank"> <i class="fas fa-file-pdf"></i>
+        <b>PDF with appendix</b></a>
+      &nbsp;
+      {% endif %}
+      {% if paper.bibtex %}
+      <a href="{{ paper.bibtex }}" target="_blank"> <i class="fas fa-quote-left"></i>
+        <b>Bibtex</b></a>
+      &nbsp;
+      {% endif %}
+      {% if paper.artifact %}
+      <a href="{{ paper.artifact }}" target="_blank"> <i class="fas fa-flask"></i>
+        <b>Artifact</b></a>
+      &nbsp;
+      {% endif %}
+      {% if paper.benchmark %}
+      <a href="{{ paper.benchmark }}" target="_blank"> <i class="fas fa-tachometer-alt"></i> <b>Benchmark</b></a>
+      &nbsp;
+      {% endif %}
+      {% if paper.talk-video %}
+      <a href="{{ paper.talk-video }}" target="_blank"> <i class="fas fa-play-circle"></i>
+        <b>Talk</b></a>
+      &nbsp;
+      {% endif %}
+      {% if paper.talk-slides %}
+      <a href="{{ paper.talk-slides }}" target="_blank"> <i class="fas fa-file-powerpoint"></i> <b>Slides</b></a>
+      &nbsp;
+      {% endif %}
+    </div>
+  {% endif %}
+
+  {{ content }}
+</section>

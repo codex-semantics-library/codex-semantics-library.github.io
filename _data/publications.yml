@@ -1,5 +1,9 @@
 # Ah yes, the best database system: text files!
+#
 # All website publications, sorted by publication year
+#
+# Make sure all paths start with "/", espacially the easy-summary one,
+# otherwise the _layout/paper.html WILL break (it looks into this DB for a matching entry)
 - year: 2024
   publications:
     - title: "Compiling with Abstract Interpretation"
@@ -12,11 +16,15 @@
       award: null
       doi: 10.1145/3656392
       artifact: https://doi.org/10.5281/zenodo.10895582
-      easy-summary: papers/2024-pldi-compiling-with-abstract-interpretation.html
-      pdf: assets/publications/pdfs/2024-pldi-compiling-with-abstract-interpretation.pdf
-      pdf-with-appendix: assets/publications/2024-pldi-compiling-with-abstract-interpretation-with-appendix.pdf
+      easy-summary: /papers/2024-pldi-compiling-with-abstract-interpretation.html
+      pdf: /assets/publications/pdfs/2024-pldi-compiling-with-abstract-interpretation.pdf
+      pdf-with-appendix: /assets/publications/2024-pldi-compiling-with-abstract-interpretation-with-appendix.pdf
       talk-slides: null
-      bibtex: assets/publications/bibtex/2024-pldi-compiling-with-abstract-interpretation.bib
+      bibtex: /assets/publications/bibtex/2024-pldi-compiling-with-abstract-interpretation.bib
+      topics:
+        - Compilers
+        - Abstract Interpretation
+        - Static Single Assignement (SSA)
 
 - year: 2023
   publications:
@@ -28,7 +36,7 @@
       ranking: "A*"
       award: "Distinguished Paper Award"
       doi: 10.1145/3571258
-      artifact:
+      artifact: https://dl.acm.org/do/10.1145/3554341/full/
       pdf:
       pdf-with-appendix: "/assets/publications/papers/2023-popl-ssa-translation-is-an-abstract-interpretation-with-appendices.pdf"
       talk-slides: "/assets/publications/slides/2023-popl.pdf"
