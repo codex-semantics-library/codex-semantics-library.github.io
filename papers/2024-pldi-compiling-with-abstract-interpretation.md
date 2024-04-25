@@ -52,7 +52,7 @@ Our paper shows the following novel results:
 
 ## Further information
 
-- Read the **paper**: either [published version](/assets/publications/pdfs/2024-pldi-compiling-with-abstract-interpretation.pdf) or the [version with appendices](/assets/publications/2024-pldi-compiling-with-abstract-interpretation-with-appendix.pdf)
+- Read the **paper**: either [published version](/assets/publications/pdfs/2024-pldi-compiling-with-abstract-interpretation.pdf) or the [version with appendices](/assets/publications/pdfs/2024-pldi-compiling-with-abstract-interpretation-with-appendices.pdf)
 - Download the [software artifact](https://doi.org/10.5281/zenodo.10895582) from
   Zenodo to try out our example analyzer and explore the code.
 - To appear at the [Programming Language Design and Implementation (PLDI) 2024 conference](https://pldi24.sigplan.org/)
