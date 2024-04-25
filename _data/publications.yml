@@ -1,0 +1,35 @@
+# Ah yes, the best database system: text files!
+# All website publications, sorted by publication year
+- year: 2024
+  publications:
+    - title: "Compiling with Abstract Interpretation"
+      authors:
+        - name: Dorian Lesbre
+        - name: Matthieu Lemerre
+      venue: 45th ACM-SIGPLAN Symposium on Programming Language Design and Implementation
+      venue-acronym: PLDI
+      ranking: A*
+      award: null
+      doi: 10.1145/3656392
+      artifact: https://doi.org/10.5281/zenodo.10895582
+      easy-summary: papers/2024-pldi-compiling-with-abstract-interpretation.html
+      pdf: assets/publications/pdfs/2024-pldi-compiling-with-abstract-interpretation.pdf
+      pdf-with-appendix: assets/publications/2024-pldi-compiling-with-abstract-interpretation-with-appendix.pdf
+      talk-slides: null
+      bibtex: assets/publications/bibtex/2024-pldi-compiling-with-abstract-interpretation.bib
+
+- year: 2023
+  publications:
+    - title: "SSA Translation Is an Abstract Interpretation"
+      authors:
+        - name: Matthieu Lemerre
+      venue: "The 50th ACM SIGPLAN Symposium on Principles of Programming Languages"
+      venue-acronym: "POPL"
+      ranking: "A*"
+      award: "Distinguished Paper Award"
+      doi: 10.1145/3571258
+      artifact:
+      pdf:
+      pdf-with-appendix: "/assets/publications/papers/2023-popl-ssa-translation-is-an-abstract-interpretation-with-appendices.pdf"
+      talk-slides: "/assets/publications/slides/2023-popl.pdf"
+      bibtex:
