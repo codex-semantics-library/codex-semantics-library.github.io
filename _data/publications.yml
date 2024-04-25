@@ -12,7 +12,7 @@
         - name: Matthieu Lemerre
       venue: 45th ACM-SIGPLAN Symposium on Programming Language Design and Implementation
       venue-acronym: PLDI
-      ranking: A*
+#      ranking: A*
       award: null
       doi: 10.1145/3656392
       artifact: https://doi.org/10.5281/zenodo.10895582
@@ -34,7 +34,7 @@
         - name: Matthieu Lemerre
       venue: "50th ACM SIGPLAN Symposium on Principles of Programming Languages"
       venue-acronym: "POPL"
-      ranking: "A*"
+#      ranking: "A*"
       award: "Distinguished Paper Award"
       doi: 10.1145/3571258
       artifact: https://dl.acm.org/do/10.1145/3554341/full/
@@ -43,7 +43,7 @@
       pdf: null
       pdf-with-appendix: "/assets/publications/pdfs/2023-popl-ssa-translation-is-an-abstract-interpretation-with-appendices.pdf"
       talk-slides: "/assets/publications/slides/2023-popl-ssa-translation-is-an-abstract-interpretation-slides.pdf"
-      talk-video: null
+      talk-video: "https://www.youtube.com/watch?v=wkIfcN3Ipd4"
       bibtex: /assets/publications/bibtex/2023-popl-ssa-translation-is-an-abstract-interpretation.bib
       topics:
         - static single assignement (SSA)
@@ -59,7 +59,7 @@
         - name: Xavier Rival
       venue: "23rd International Conference on Verification, Model Checking, and Abstract Interpretation"
       venue-acronym: "VMCAI"
-      ranking: null
+#      ranking: null
       award: null
       doi: 10.1007/978-3-030-94583-1_11
       artifact: "https://doi.org/10.5281/zenodo.5589489"
@@ -85,7 +85,7 @@
         - name: Xavier Rival
       venue: "27th IEEE Real-Time and Embedded Technology and Applications Symposium"
       venue-acronym: "RTAS"
-      ranking: "A"
+#      ranking: "A"
       award: "Best and Outstanding Paper Awards"
       doi: 10.1109/rtas52030.2021.00011
       artifact: "https://github.com/binsec/rtas2021_artifact"
