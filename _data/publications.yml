@@ -1,5 +1,9 @@
 # Ah yes, the best database system: text files!
+#
 # All website publications, sorted by publication year
+#
+# Make sure all paths start with "/", espacially the easy-summary one,
+# otherwise the _layout/paper.html WILL break (it looks into this DB for a matching entry)
 - year: 2024
   publications:
     - title: "Compiling with Abstract Interpretation"
@@ -12,24 +16,92 @@
       award: null
       doi: 10.1145/3656392
       artifact: https://doi.org/10.5281/zenodo.10895582
-      easy-summary: papers/2024-pldi-compiling-with-abstract-interpretation.html
-      pdf: assets/publications/pdfs/2024-pldi-compiling-with-abstract-interpretation.pdf
-      pdf-with-appendix: assets/publications/2024-pldi-compiling-with-abstract-interpretation-with-appendix.pdf
+      easy-summary: /papers/2024-pldi-compiling-with-abstract-interpretation.html
+      pdf: /assets/publications/pdfs/2024-pldi-compiling-with-abstract-interpretation.pdf
+      pdf-with-appendix: /assets/publications/pdfs/2024-pldi-compiling-with-abstract-interpretation-with-appendices.pdf
       talk-slides: null
-      bibtex: assets/publications/bibtex/2024-pldi-compiling-with-abstract-interpretation.bib
+      talk-video: null
+      bibtex: /assets/publications/bibtex/2024-pldi-compiling-with-abstract-interpretation.bib
+      topics:
+        - compilers
+        - abstract interpretation
+        - static single assignement (SSA)
 
 - year: 2023
   publications:
     - title: "SSA Translation Is an Abstract Interpretation"
       authors:
         - name: Matthieu Lemerre
-      venue: "The 50th ACM SIGPLAN Symposium on Principles of Programming Languages"
+      venue: "50th ACM SIGPLAN Symposium on Principles of Programming Languages"
       venue-acronym: "POPL"
       ranking: "A*"
       award: "Distinguished Paper Award"
       doi: 10.1145/3571258
-      artifact:
-      pdf:
-      pdf-with-appendix: "/assets/publications/papers/2023-popl-ssa-translation-is-an-abstract-interpretation-with-appendices.pdf"
-      talk-slides: "/assets/publications/slides/2023-popl.pdf"
-      bibtex:
+      artifact: https://dl.acm.org/do/10.1145/3554341/full/
+      artifact-evaluated-reusable: true
+      artifact-available: true
+      pdf: null
+      pdf-with-appendix: "/assets/publications/pdfs/2023-popl-ssa-translation-is-an-abstract-interpretation-with-appendices.pdf"
+      talk-slides: "/assets/publications/slides/2023-popl-ssa-translation-is-an-abstract-interpretation-slides.pdf"
+      talk-video: null
+      bibtex: /assets/publications/bibtex/2023-popl-ssa-translation-is-an-abstract-interpretation.bib
+      topics:
+        - static single assignement (SSA)
+        - abstract interpretation
+        - cyclic term graph
+
+- year: 2022
+  publications:
+    - title: "Lightweight Shape Analysis based on Physical Types"
+      authors:
+        - name: Olivier Nicole
+        - name: Matthieu Lemerre
+        - name: Xavier Rival
+      venue: "23rd International Conference on Verification, Model Checking, and Abstract Interpretation"
+      venue-acronym: "VMCAI"
+      ranking: null
+      award: null
+      doi: 10.1007/978-3-030-94583-1_11
+      artifact: "https://doi.org/10.5281/zenodo.5589489"
+      pdf: "/assets/publications/pdfs/2022-vmcai-lightweight-shape-analysis.pdf"
+      pdf-with-appendix: null
+      easy-summary: "/papers/2022-vcmai-lightweight-shape-analysis.html"
+      bibtex: "/assets/publications/bibtex/2022-vmcai-lightweight-shape-analysis.bib"
+      talk-slides: "/assets/publications/slides/2022-vmcai-lightweight-shape-analysis-slides.pdf"
+      talk-video: "https://www.youtube.com/watch?v=fhVkx-HKJag"
+      artifact-custom-image: "/assets/img/artefact_vmcai.png"
+      topics:
+        - type safety
+        - formal methods
+        - code analysis
+
+- year: 2021
+  publications:
+    - title: "No Crash, No Exploit: Automatic Verification of Embedded Kernels"
+      authors:
+        - name: Olivier Nicole
+        - name: Matthieu Lemerre
+        - name: Sébastien Bardin
+        - name: Xavier Rival
+      venue: "27th IEEE Real-Time and Embedded Technology and Applications Symposium"
+      venue-acronym: "RTAS"
+      ranking: "A"
+      award: "Best and Outstanding Paper Awards"
+      doi: 10.1109/rtas52030.2021.00011
+      artifact: "https://github.com/binsec/rtas2021_artifact"
+      benchmark: "https://zenodo.org/record/4670548#.YpXprHVfiV4"
+      pdf: "/assets/publications/pdfs/2021-rtas-no-crash-no-exploit.pdf"
+      pdf-with-appendix: /assets/publications/pdfs/2021-rtas-no-crash-no-exploit-tech-report.pdf
+      pdf-with-appendix-caption: Technical Report
+      easy-summary: "/papers/2021-rtas-no-crash-no-exploit.html"
+      artifact-custom-image: "/assets/img/artefact_rtas.png"
+      talk-video: "https://www.youtube.com/watch?v=dC9Aga7j7oM"
+      talk-slides: "/assets/publications/slides/2021-rtas-no-crash-no-exploit-slides.pdf"
+      comment: "Also presented at AFADL 2021"
+      bibtex: "/assets/publications/bibtex/2021-rtas-no-crash-no-exploit.bib"
+      topics:
+        - embedded system security
+        - secure embedded kernels
+        - formal methods
+        - abstract interpretation
+        - absence of privilege escalation
