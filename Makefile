@@ -4,3 +4,9 @@
 # To get dependencies: sudo bundle install (before: apt-get install ruby-dev)
 serve:
 	bundle exec jekyll serve --livereload
+
+
+docker-serve:
+	docker build -f Dockerfile -t codexsite .
+	docker run -p "4000:4000" --volume "$$PWD:/home/jekyll:Z" --network=host --rm -ti codexsite \
+	bundle exec jekyll serve 
