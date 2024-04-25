@@ -5,6 +5,7 @@ parent: Publications
 title: "PLDI'24 Research Paper"
 categories: new publication
 date: 2024-04-22
+nav_order: 2024-04-22
 ---
 
 ## Context

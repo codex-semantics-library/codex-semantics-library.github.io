@@ -4,68 +4,120 @@ layout: post
 
 <section>
   {% comment %}
-    Look for a matching entry in _data/publications.yml
-    Path to self is used to check match, as it should be unique
+  Look for a matching entry in _data/publications.yml
+  Path to self is used to check match, as it should be unique
   {% endcomment %}
   {% for y in site.data.publications %}
-    {% for p in y.publications %}
-      {% if p.easy-summary == page.url %}
-        {% assign paper = p %}
-        {% assign year = y.year %}
-        {% break %}
-      {% endif %}
-    {% endfor %}
-    {% if paper %}
-      {% break %}
-    {% endif %}
+  {% for p in y.publications %}
+  {% if p.easy-summary == page.url %}
+  {% assign paper = p %}
+  {% assign year = y.year %}
+  {% break %}
+  {% endif %}
+  {% endfor %}
+  {% if paper %}
+  {% break %}
+  {% endif %}
   {% endfor %}
 
   {% if paper %}
-    <h1>{{ paper.title }}</h1>
-    <div>
-      <b>{{ paper.venue-acronym }} {{ year }}</b> 
-      &mdash;
-      {% for a in paper.authors %}
-      <i>{{ a.name }}</i>{% if forloop.last %}{% else %},{% endif %}
-      {% endfor %}
-      {% if paper.doi %}&mdash; <a href="https://dx.doi.org/{{ paper.doi }}" style="opacity: 50%;">{{ paper.doi }}</a> {% endif %}
-    </div>
+  <h1>{{ paper.title }}</h1>
+  <div>
+    <b>{{ paper.venue-acronym }} {{ year }}</b>
+    &mdash;
+    {% for a in paper.authors %}
+    <i>{{ a.name }}</i>{% if forloop.last %}{% else %},{% endif %}
+    {% endfor %}
+    {% if paper.doi %}&mdash; <a href="https://dx.doi.org/{{ paper.doi }}" style="opacity: 50%;">{{ paper.doi }}</a> {% endif %}
+  </div>
 
+  <div style="margin-top: 10px;">
+    {% if paper.pdf %}
+    <a href="{{ paper.pdf }}" target="_blank"> <i class="fas fa-file-pdf"></i>
+      <b>PDF</b></a>
+    &nbsp;
+    {% endif %}
+    {% if paper.pdf-with-appendix %}
+    <a href="{{ paper.pdf-with-appendix }}" target="_blank"> <i class="fas fa-file-pdf"></i>
+      <b>{{ paper.pdf-with-appendix-caption | default:"PDF with appendix" }}</b></a>
+    &nbsp;
+    {% endif %}
+    {% if paper.bibtex %}
+    <a href="{{ paper.bibtex }}" target="_blank"> <i class="fas fa-quote-left"></i>
+      <b>Bibtex</b></a>
+    &nbsp;
+    {% endif %}
+    {% if paper.artifact %}
+    <a href="{{ paper.artifact }}" target="_blank"> <i class="fas fa-laptop-code"></i>
+      <b>Artifact</b></a>
+    &nbsp;
+    {% endif %}
+    {% if paper.benchmark %}
+    <a href="{{ paper.benchmark }}" target="_blank"> <i class="fas fa-tachometer-alt"></i> <b>Benchmark</b></a>
+    &nbsp;
+    {% endif %}
+    {% if paper.talk-video %}
+    <a href="{{ paper.talk-video }}" target="_blank"> <i class="fas fa-play-circle"></i>
+      <b>Talk</b></a>
+    &nbsp;
+    {% endif %}
+    {% if paper.talk-slides %}
+    <a href="{{ paper.talk-slides }}" target="_blank"> <i class="fas fa-file-powerpoint"></i> <b>Slides</b></a>
+    &nbsp;
+    {% endif %}
+  </div>
+  {% if paper.award %}
+  <div style="margin-top: 10px;">
+    <i class="fas fa-award"></i> <b>{{ paper.award }}</b></a>
+  </div>
+  {% endif %}
+
+  {% if 
+    paper.artifact-evaluated-functional or 
+    paper.artifact-evaluated-reusable or 
+    paper.artifact-available or
+    paper.results-replicated or 
+    paper.results-reproduced or 
+    paper.artifact-custom-image %}
     <div style="margin-top: 10px;">
-      {% if paper.pdf %}
-      <a href="{{ paper.pdf }}" target="_blank"> <i class="fas fa-file-pdf"></i>
-        <b>PDF</b></a>
+      {% if paper.artifact-custom-image %}
+      <img src="{{ paper.artifact-custom-image }}" width="{{ paper.artifact-custom-image-width | default:35 }}"
+        height="{{ paper.artifact-custom-image-height | default:35 }}">
       &nbsp;
       {% endif %}
-      {% if paper.pdf-with-appendix %}
-      <a href="{{ paper.pdf }}" target="_blank"> <i class="fas fa-file-pdf"></i>
-        <b>PDF with appendix</b></a>
+      {% if paper.artifact-evaluated-functional %}
+      <img src="/assets/img/artifacts_evaluated_functional.png" alt="ACM Badge Artifact Functional" width="35"
+        height="35">
       &nbsp;
       {% endif %}
-      {% if paper.bibtex %}
-      <a href="{{ paper.bibtex }}" target="_blank"> <i class="fas fa-quote-left"></i>
-        <b>Bibtex</b></a>
+      {% if paper.artifact-evaluated-reusable %}
+      <img src="/assets/img/artifacts_evaluated_reusable.png" alt="ACM Badge Artifact Reusable" width="35"
+        height="35">
       &nbsp;
       {% endif %}
-      {% if paper.artifact %}
-      <a href="{{ paper.artifact }}" target="_blank"> <i class="fas fa-flask"></i>
-        <b>Artifact</b></a>
+      {% if paper.artifact-available %}
+      <img src="/assets/img/artifacts_available.png" alt="ACM Badge Artifact Available" width="35" height="35">
       &nbsp;
       {% endif %}
-      {% if paper.benchmark %}
-      <a href="{{ paper.benchmark }}" target="_blank"> <i class="fas fa-tachometer-alt"></i> <b>Benchmark</b></a>
+      {% if paper.results-replicated %}
+      <img src="/assets/img/results_replicated.png" alt="ACM Badge Results Replicated" width="35" height="35">
       &nbsp;
       {% endif %}
-      {% if paper.talk-video %}
-      <a href="{{ paper.talk-video }}" target="_blank"> <i class="fas fa-play-circle"></i>
-        <b>Talk</b></a>
-      &nbsp;
-      {% endif %}
-      {% if paper.talk-slides %}
-      <a href="{{ paper.talk-slides }}" target="_blank"> <i class="fas fa-file-powerpoint"></i> <b>Slides</b></a>
+      {% if paper.results-reproduced %}
+      <img src="/assets/img/results_reproduced.png" alt="ACM Badge Results Reproduced" width="35" height="35">
       &nbsp;
       {% endif %}
     </div>
+    {% endif %}
+
+    {% if paper.topics %}  
+    <div style="margin-top: 10px;">
+      <b>Topics:</b>
+      {% for a in paper.topics %}
+      {{ a }}{% if forloop.last %}.{% else %}; {% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
   {% endif %}
 
   {{ content }}
