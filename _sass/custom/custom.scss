@@ -46,3 +46,12 @@
     rgba($feedback-color, 0)      
   );
 }
+
+div.linkrow {
+  display: flex;
+  flex-wrap: wrap;
+
+  >a {
+    margin-right: 10px;
+  }
+}

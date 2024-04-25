@@ -31,7 +31,7 @@ layout: post
     {% if paper.doi %}&mdash; <a href="https://dx.doi.org/{{ paper.doi }}" style="opacity: 50%;">{{ paper.doi }}</a> {% endif %}
   </div>
 
-  <div style="margin-top: 10px;">
+  <div class="linkrow" style="margin-top: 10px;">
     {% if paper.pdf %}
     <a href="{{ paper.pdf }}" target="_blank"> <i class="fas fa-file-pdf"></i>
       <b>PDF</b></a>
