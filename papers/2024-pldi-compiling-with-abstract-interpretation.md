@@ -31,12 +31,12 @@ transformation and analysis passes?
 In practice, the best precision is obtained by running transformations and analyses
 simultaneously. Fortunately, **abstract interpretation** is well-suited to fuse different analyses together. In abstract interpretation, each analysis is viewed as a domain,
 and all domains have a common signature/interface. This allows running multiple analyses
-in parallel (using a product of the relevant domain), and have them collaborate
-(domains can query other domain to see if they can prove a property).
+in parallel (using a product of the relevant domains), and have them collaborate
+(domains can query other domains to see if they can prove a property).
 
 ## Example
 
-Below is an example of compiling a source program to SSA using our technique. Our analyzer is capable of eliminating the dead else branch in the loop. Doing so requires simultaneously
+Below is an example of compiling a source program to SSA using our technique (you can see the labels in the nodes as just different names for each node). Our analyzer is capable of eliminating the dead else branch inside the loop. Doing so requires simultaneously
 performing
 **numerical analysis** (to learn that z is even), some **syntactic transformations** (to learn
 that F(j + z%2) is F(j)), optimistic **global value numbering** (to learn that i = j), and
@@ -53,12 +53,12 @@ style="width:700px; display:block; margin-left:auto; margin-right:auto">
 Our paper shows the following novel results:
 - A standard abstract interpretation framework can be turned into a
   compiler: create a domain that is a **free-algebra** of the domain signature (i.e.
-  a domain that implements each domain operation with a separate constructor), then the analysis
+  a domain where each domain operation is a constructor creating an expression), then the analysis
   result **can be used to construct a new program**.
 - **Functors can mimic compiler passes**.
   A functor is just a function that builds a new abstract domain on top of abstract
   domains received as arguments. Functors are modular, they can be proved independently
-  and then combined in a full compilation chain. Functor soundness and completness
+  and then combined in a full compilation chain. Functor soundness and completeness
   imply forward and backward simulation between source and compiled program respectively.
 
   Here is a small example of a sound and complete functor transformation:
@@ -68,19 +68,20 @@ Our paper shows the following novel results:
   style="width:450px; display:block; margin-left:auto; margin-right:auto">
 
 - **Compiling to SSA recovers missing context and improves numerical analysis precision**.
-  We describe a functor for compiling from a small imperative language to SSA.
+  We describe a functor for compiling a small imperative language to SSA.
   This allows performing a numerical analysis on the SSA form, which leverages
   variable immutability to store information on expressions.
-  This is more precise than direct numerical analysis.
+  This is always more precise than direct numerical analysis, while just adding a constant overhead.
 
-  Furthermore, this domain car analyze compiled code with the same precision as source.
-  It doesn't suffer any precision loss from compiling large expressions into
-  instruction sequences with multiple intermediate variables.
+  In particular, this domain car analyze compiled code with the same precision as source
+  (when compilation corresponds, e.g., to transformation into three-address code).
+  The usual precision loss resulting from compiling large expressions into
+  instruction sequences with multiple intermediate variables is recovered thanks to our SSA-based analysis.
 
   Here are a few examples of assertion this domain can prove:
   - Propagate information across statements
     ```c
-    c = y >= 0;
+    c = (y >= 0);
     if (c) {
         assert(y >= 0);
     }
