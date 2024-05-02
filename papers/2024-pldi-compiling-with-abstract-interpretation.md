@@ -34,21 +34,76 @@ and all domains have a common signature/interface. This allows running multiple 
 in parallel (using a product of the relevant domain), and have them collaborate
 (domains can query other domain to see if they can prove a property).
 
+## Example
+
+Below is an example of compiling a source program to SSA using our technique. Our analyzer is capable of eliminating the dead else branch in the loop. Doing so requires simultaneously
+performing
+**numerical analysis** (to learn that z is even), some **syntactic transformations** (to learn
+that F(j + z%2) is F(j)), optimistic **global value numbering** (to learn that i = j), and
+**dead code elimination** so that no analysis takes the else branch (which breaks all those properties).
+
+<img src="/assets/publications/imgs/2024-pldi-full-example.svg"
+style="width:700px; display:block; margin-left:auto; margin-right:auto">
+
+
+
+
 ## Contributions
 
 Our paper shows the following novel results:
 - A standard abstract interpretation framework can be turned into a
   compiler: create a domain that is a **free-algebra** of the domain signature (i.e.
-  implement each domain operation with a separate constructor), then the analysis
-  result can be used to reconstruct the program graph.
-- Functors (functions that build a new abstract domain from abstract domains received as
-  arguments) can mimic compiler passes, with, functor soundness and completness
-  implying forward and backward simulation between source and compiled program respectively.
-- We extend these transformations to compilation from a small imperative language
-  to an SSA form
-- We show that transforming to SSA and running a numerical analysis on the SSA form
-  simultaneously is more precise than classical numerical analysis. Furthermore,
-  this domain doesn't suffer from precision loss when analyzing compiled code.
+  a domain that implements each domain operation with a separate constructor), then the analysis
+  result **can be used to construct a new program**.
+- **Functors can mimic compiler passes**.
+  A functor is just a function that builds a new abstract domain on top of abstract
+  domains received as arguments. Functors are modular, they can be proved independently
+  and then combined in a full compilation chain. Functor soundness and completness
+  imply forward and backward simulation between source and compiled program respectively.
+
+  Here is a small example of a sound and complete functor transformation:
+  replacing a ternary operator with explicit control flow jumps.
+
+  <img src="/assets/publications/imgs/2024-pldi-transformation-example.svg"
+  style="width:450px; display:block; margin-left:auto; margin-right:auto">
+
+- **Compiling to SSA recovers missing context and improves numerical analysis precision**.
+  We describe a functor for compiling from a small imperative language to SSA.
+  This allows performing a numerical analysis on the SSA form, which leverages
+  variable immutability to store information on expressions.
+  This is more precise than direct numerical analysis.
+
+  Furthermore, this domain car analyze compiled code with the same precision as source.
+  It doesn't suffer any precision loss from compiling large expressions into
+  instruction sequences with multiple intermediate variables.
+
+  Here are a few examples of assertion this domain can prove:
+  - Propagate information across statements
+    ```c
+    c = y >= 0;
+    if (c) {
+        assert(y >= 0);
+    }
+    ```
+  - Learn from related variables:
+    ```c
+    y = x + 1;
+    z = x * x;
+    if (2 <= y && y <= 5) {
+        assert(1 <= x && x <= 4);
+        assert(1 <= z && z <= 16);
+    }
+    ```
+  - Increase precision of the numeric abstraction: even though intervals
+    can't represent `x != 0`, using our domain with interval abstraction can prove this
+    ```c
+    if (x != 0) {
+        assert(x != 0);
+    }
+    ```
+
+
+
 
 ## Further information
 

@@ -1,50 +1,41 @@
-
-
 // We dim the light on the navigation item under the mouse.
 .nav-list .nav-list-item .nav-list-link {
-       &:hover,
-       &.active {
-	   text-decoration: underline;
-	   background-image: linear-gradient(
-               -90deg,
-               rgba($feedback-color, 0),
-               rgba($feedback-color, 0.3) 50%,
-               rgba($feedback-color, 0)
-           );
-	   // background-image: none;
 
-       }
+  &:hover,
+  &.active {
+    text-decoration: underline;
+    background-image: linear-gradient(-90deg,
+        rgba($feedback-color, 0),
+        rgba($feedback-color, 0.3) 50%,
+        rgba($feedback-color, 0));
+    // background-image: none;
+
+  }
 }
 
 .nav-list .nav-list-item .nav-list-expander {
 
-    &:hover {
-	background-image: linear-gradient(
-            -90deg,
-            rgba($feedback-color, 0),
-            rgba($feedback-color, 0.3) 50%,
-            rgba($feedback-color, 0)	    
-        );
-    }
+  &:hover {
+    background-image: linear-gradient(-90deg,
+        rgba($feedback-color, 0),
+        rgba($feedback-color, 0.3) 50%,
+        rgba($feedback-color, 0));
+  }
 }
 
 
 .site-title:hover {
-  background-image: linear-gradient(
-    -90deg,
-    rgba($feedback-color, 0),
-    rgba($feedback-color, 0.3) 50%,
-    rgba($feedback-color, 0)
-  );
+  background-image: linear-gradient(-90deg,
+      rgba($feedback-color, 0),
+      rgba($feedback-color, 0.3) 50%,
+      rgba($feedback-color, 0));
 }
 
 .site-button:hover {
-  background-image: linear-gradient(
-    -90deg,
-    rgba($feedback-color, 0),
-    rgba($feedback-color, 0.3) 50%,
-    rgba($feedback-color, 0)      
-  );
+  background-image: linear-gradient(-90deg,
+      rgba($feedback-color, 0),
+      rgba($feedback-color, 0.3) 50%,
+      rgba($feedback-color, 0));
 }
 
 div.linkrow {
@@ -53,5 +44,15 @@ div.linkrow {
 
   >a {
     margin-right: 10px;
+  }
+}
+
+div.highlighter-rouge div.highlight {
+  background: lighten(#E5D780, 15%);
+  padding: 5px;
+  margin: 10px;
+
+  pre {
+    background: inherit;
   }
 }
