@@ -10,6 +10,21 @@ aux_links:
 
 logo: "/assets/codex.png"
 
+exclude: [
+    Makefile,
+    README.md,
+    .sass-cache/,
+    .jekyll-cache/,
+    gemfiles/,
+    Gemfile,
+    Gemfile.lock
+    node_modules/,
+    vendor/bundle/,
+    vendor/cache/,
+    vendor/gems/,
+    vendor/ruby/,
+  ]
+
 nav_external_links:
   - title: Patricia Tree Library
     url: patricia-tree

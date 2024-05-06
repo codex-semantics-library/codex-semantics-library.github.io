@@ -1,0 +1,51 @@
+---
+layout: default
+title: Frama-C API
+description: ...
+css: api, pygments
+---
+
+
+
+<body class="page nonTouch">
+  <link rel="stylesheet" href="/assets/css/api.css">
+  <link rel="stylesheet" href="/assets/css/pygments.css">
+
+  <div id="wrapper" class="hfeed">
+    <nav class="breadcrumb-nav" aria-label="breadcrumb">
+      {% if page.odoc.breadcrumbs %}
+      <ol class="breadcrumb-nav-list">
+        <li class="breadcrumb-nav-list-item">
+          <a class="nav-link" href="../{{ page.odoc.breadcrumbs.first.href }}">API</a>
+        </li>
+        {% for b in page.odoc.breadcrumbs %}
+        {% unless b.name == "index" %}
+        <li class="breadcrumb-nav-list-item">
+          {% if forloop.last == false %}
+          <a class="nav-link" href="{{ b.href }}"> {{ b.name }} </a>
+          {% else %}
+          <span>{{ b.name }}</span>
+          {% endif %}
+        </li>
+        {% endunless %}
+        {% endfor %}
+        {% else %}
+        API
+        {% endif %}
+      </ol>
+    </nav>
+    <div id="container" class="mainContainer">
+      <div class="pageAPI pages">
+        {% assign name = page.odoc.breadcrumbs.last.name %}
+        {% unless name == "index" %}
+        <h1>Patricia-Tree API - <code>{{ name }}</code></h1>
+        {% endunless %}
+
+        {{ page.odoc.preamble }}
+
+        {{ page.odoc.content }}
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+</body>
