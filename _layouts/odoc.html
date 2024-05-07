@@ -20,8 +20,8 @@ css: api, pygments
         <li class="breadcrumb-nav-list-item">
           <a class="nav-link" href="../{{ page.odoc.breadcrumbs.first.href }}">API</a>
         </li>
-        {% for b in page.odoc.breadcrumbs %}
-        {% unless b.name == "index" %}
+        {% assign breadcrumbs = page.odoc.breadcrumbs | where_exp:"item","item.name != 'index'" %}
+        {% for b in breadcrumbs %}
         <li class="breadcrumb-nav-list-item">
           {% if forloop.last == false %}
           <a class="nav-link" href="{{ b.href }}"> {{ b.name }} </a>
@@ -29,7 +29,6 @@ css: api, pygments
           <span>{{ b.name }}</span>
           {% endif %}
         </li>
-        {% endunless %}
         {% endfor %}
         {% else %}
         API
