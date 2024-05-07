@@ -6,7 +6,7 @@ color_scheme: myscheme
 url: https://codex-semantics-library.github.io
 
 aux_links:
-  Repository: https://github.com/codex-semantics-library/codex
+  '<i class="fab fa-github"></i> &nbsp; Repository': https://github.com/codex-semantics-library/codex
 
 logo: "/assets/codex.png"
 
