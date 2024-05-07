@@ -6,6 +6,10 @@ h3 {
   font-size: 1.25rem !important;
 }
 
+li.raises>p:first-of-type {
+  display: inline;
+}
+
 .pageAPI>.wrap {
   position: relative;
   margin: 0 auto;
@@ -829,6 +833,78 @@ details[open].empty summary::before,
 details.empty summary::before {
   display: none;
 }
+
+.hljs {
+  display: block;
+  background: var(--code-background);
+  padding: 0.5em;
+  color: var(--color);
+  overflow-x: auto;
+}
+
+.hljs-comment,
+.hljs-meta {
+  color: #969896;
+}
+
+.hljs-string,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-strong,
+.hljs-emphasis,
+.hljs-quote {
+  color: #df5000;
+}
+
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #a71d5d;
+}
+
+.hljs-type,
+.hljs-class .hljs-title {
+  color: #458;
+  font-weight: 500;
+}
+
+.hljs-literal,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-attribute {
+  color: #0086b3;
+}
+
+.hljs-section,
+.hljs-name {
+  color: #63a35c;
+}
+
+.hljs-tag {
+  color: #333333;
+}
+
+.hljs-attr,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+  color: #795da3;
+}
+
+.hljs-addition {
+  color: #55a532;
+  background-color: #eaffea;
+}
+
+.hljs-deletion {
+  color: #bd2c00;
+  background-color: #ffecec;
+}
+
+.hljs-link {
+  text-decoration: underline;
+}
+
 
 .VAL,
 .TYPE,
