@@ -10,6 +10,15 @@ li.raises>p:first-of-type {
   display: inline;
 }
 
+/* override just-the-docs labels (use for labelled arguments in OCaml) */
+code .label {
+  color: #6d071a;
+  background-color: transparent;
+  text-transform: none;
+  padding: 0;
+  margin: 0;
+}
+
 .pageAPI>.wrap {
   position: relative;
   margin: 0 auto;
@@ -443,9 +452,9 @@ div.odoc-spec,
 .spec.type .record {
   margin-left: 2ch;
   list-style: none;
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
-  row-gap: 4px;
+  row-gap: 4px; */
 }
 
 .spec.type .record>code,
@@ -858,7 +867,7 @@ details.empty summary::before {
 
 .hljs-keyword,
 .hljs-selector-tag {
-  color: #a71d5d;
+  color: #309100;
 }
 
 .hljs-type,
@@ -870,6 +879,7 @@ details.empty summary::before {
 .hljs-literal,
 .hljs-symbol,
 .hljs-bullet,
+.type-var,
 .hljs-attribute {
   color: #0086b3;
 }
