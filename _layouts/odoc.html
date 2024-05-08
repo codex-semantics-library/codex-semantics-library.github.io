@@ -1,50 +1,48 @@
 ---
-layout: default
 title: Codex API
+layout: default
 description: ...
+compress_html: blanklines
 css: ["api", "pygments"]
 ---
 
 
+<script src="/assets/js/highlight.pack.js"></script>
+<script>hljs.highlightAll();</script>
 
-<body class="page nonTouch">
-  <script src="/assets/js/highlight.pack.js"></script>
-  <script>hljs.highlightAll();</script>
-
-  <div id="wrapper" class="hfeed">
-    <nav class="breadcrumb-nav" aria-label="breadcrumb">
-      {% if page.odoc.breadcrumbs %}
-      <ol class="breadcrumb-nav-list">
-        <li class="breadcrumb-nav-list-item">
-          <a class="nav-link" href="../{{ page.odoc.breadcrumbs.first.href }}">API</a>
-        </li>
-        {% assign breadcrumbs = page.odoc.breadcrumbs | where_exp:"item","item.name != 'index'" %}
-        {% for b in breadcrumbs %}
-        <li class="breadcrumb-nav-list-item">
-          {% if forloop.last == false %}
-          <a class="nav-link" href="{{ b.href }}"> {{ b.name }} </a>
-          {% else %}
-          <span>{{ b.name }}</span>
-          {% endif %}
-        </li>
-        {% endfor %}
+<div id="wrapper" class="hfeed">
+  <nav class="breadcrumb-nav" aria-label="breadcrumb">
+    {% if page.odoc.breadcrumbs %}
+    <ol class="breadcrumb-nav-list">
+      <li class="breadcrumb-nav-list-item">
+        <a class="nav-link" href="../{{ page.odoc.breadcrumbs.first.href }}">API</a>
+      </li>
+      {% assign breadcrumbs = page.odoc.breadcrumbs | where_exp:"item","item.name != 'index'" %}
+      {% for b in breadcrumbs %}
+      <li class="breadcrumb-nav-list-item">
+        {% if forloop.last == false %}
+        <a class="nav-link" href="{{ b.href }}"> {{ b.name }} </a>
         {% else %}
-        API
+        <span>{{ b.name }}</span>
         {% endif %}
-      </ol>
-    </nav>
-    <div id="container" class="mainContainer">
-      <div class="pageAPI pages">
-        {% assign name = page.odoc.breadcrumbs.last.name %}
-        {% unless name == "index" %}
-        <h1>Patricia-Tree API - <code>{{ name }}</code></h1>
-        {% endunless %}
+      </li>
+      {% endfor %}
+      {% else %}
+      API
+      {% endif %}
+    </ol>
+  </nav>
+  <div id="container" class="mainContainer">
+    <div class="pageAPI pages">
+      {% assign name = page.odoc.breadcrumbs.last.name %}
+      {% unless name == "index" %}
+      <h1>Patricia-Tree API - <code>{{ name }}</code></h1>
+      {% endunless %}
 
-        {{ page.odoc.preamble }}
+      {{ page.odoc.preamble }}
 
-        {{ page.odoc.content }}
-      </div>
-      <div class="clear"></div>
+      {{ page.odoc.content }}
     </div>
+    <div class="clear"></div>
   </div>
-</body>
+</div>
