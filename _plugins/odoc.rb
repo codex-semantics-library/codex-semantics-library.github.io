@@ -1,3 +1,7 @@
+# Ruby plugin for odoc generated json files (by dune build @doc-json)
+# Autodectects json files placed in _data/api
+# Originally written by Allan Blanchard for Frama-C's website
+# https://git.frama-c.com/pub/pub.frama-c.com
 module OdocPlugin
   class OdocPageGenerator < Jekyll::Generator
     safe true
@@ -22,7 +26,7 @@ module OdocPlugin
     end
 
     def generate(site)
-      pages = find_all_pages(site.data['_api'])
+      pages = find_all_pages(site.data['api'])
       pages.each do |path, data|
         site.pages << OdocPage.new(site, path, data)
       end
