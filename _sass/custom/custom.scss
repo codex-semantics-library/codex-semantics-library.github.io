@@ -49,6 +49,11 @@ div.linkrow {
 
 .site-nav {
   padding-top: 1rem;
+
+  .site-nav {
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+  }
 }
 
 div.highlighter-rouge div.highlight {
@@ -58,5 +63,28 @@ div.highlighter-rouge div.highlight {
 
   pre {
     background: inherit;
+  }
+}
+
+div.nav-collapse {
+  padding-top: 1rem;
+  width: 100%;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 10px;
+
+  span {
+    margin: 0 10px;
+  }
+
+  &:before,
+  &:after {
+    background: #000;
+    content: "";
+    height: 1px;
+    flex: 1;
   }
 }

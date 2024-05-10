@@ -18,7 +18,54 @@
     </button>
   </div>
 
-  {% include_cached components/site_nav.html %}
+  <nav class="site-nav">
+    {% if page.odoc.toc != empty %}
+    <div class="nav-collapse"><span>Site navigation</span></div>
+    {% endif %}
+
+    {% include_cached components/site_nav.html %}
+
+    {% if page.odoc.toc != empty %}
+    <div class="nav-collapse"><span>Page contents</span></div>
+    <nav class="site-nav">
+    <ul class="nav-list">
+      {%- for node in page.odoc.toc -%}
+        <li class="nav-list-item active">
+          {% if node.children != empty %}
+            <button class="nav-list-expander btn-reset" aria-label="toggle items in {{ node.title }} category" aria-pressed="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+            </button>
+          {%endif%}
+          <a href="{{ node.href }}" class="nav-list-link">{{ node.title }}</a>
+          {% if node.children != empty %}
+          <ul class="nav-list">
+            {%- for node in node.children -%}
+            <li class="nav-list-item">
+              {% if node.children != empty %}
+                <button class="nav-list-expander btn-reset" aria-label="toggle items in {{ node.title }} category" aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+                </button>
+              {%endif%}
+              <a href="{{ node.href }}" class="nav-list-link">{{ node.title }}</a>
+              {% if node.children != empty %}
+              <ul class="nav-list">
+                {%- for node in node.children -%}
+                <li class="nav-list-item">
+                  <a href="{{ node.href }}" class="nav-list-link">{{ node.title }}</a>
+                </li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+            </li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+    </nav>
+    {% endif %}
+  </nav>
 
   {% capture nav_footer_custom %}
     {%- include nav_footer_custom.html -%}
