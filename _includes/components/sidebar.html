@@ -19,13 +19,13 @@
   </div>
 
   <nav class="site-nav">
-    {% if page.odoc.toc != empty %}
+    {% if page.odoc.toc and page.odoc.toc != empty %}
     <div class="nav-collapse"><span>Site navigation</span></div>
     {% endif %}
 
     {% include_cached components/site_nav.html %}
 
-    {% if page.odoc.toc != empty %}
+    {% if page.odoc.toc and page.odoc.toc != empty %}
     <div class="nav-collapse"><span>Page contents</span></div>
     <nav class="site-nav">
     <ul class="nav-list">

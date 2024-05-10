@@ -56,14 +56,12 @@ div.linkrow {
   }
 }
 
-div.highlighter-rouge div.highlight {
-  background: lighten(#E5D780, 15%);
-  padding: 5px;
-  margin: 10px;
-
-  pre {
-    background: inherit;
-  }
+.highlight,
+pre.highlight,
+.highlight pre,
+.highlight .hll,
+div.highlighter-rouge {
+  background: #f2ebc0;
 }
 
 div.nav-collapse {

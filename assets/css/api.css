@@ -12,7 +12,7 @@ li.raises>p:first-of-type {
 
 /* override just-the-docs labels (use for labelled arguments in OCaml) */
 code .label {
-  color: #6d071a;
+  color: #f7931c;
   background-color: transparent;
   text-transform: none;
   padding: 0;
@@ -254,15 +254,15 @@ code .label {
   --target-background: #fdeee6;
   --target-shadow: #ffdec3;
   --pre-border-color: #eee;
-  --code-background: floralwhite;
-  --link-color: #f7931c;
+  --code-background: #f2ebc0;
+  --link-color: #5f2832;
 
   --toc-color: #1F2D3D;
   --toc-before-color: #777;
   --toc-background: #f6f8fa;
   --toc-list-border: #ccc;
 
-  --spec-summary-border-color: #f36521;
+  --spec-summary-border-color: #c60d2f;
   --spec-summary-background: var(--code-background);
   --spec-summary-hover-background: #ebeff2;
   --spec-details-after-background: rgba(0, 4, 15, 0.05);
