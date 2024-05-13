@@ -10,24 +10,24 @@ css: ["api", "pygments"]
 
 <div id="wrapper" class="hfeed">
   <nav class="breadcrumb-nav" aria-label="breadcrumb">
-    {% if page.odoc.breadcrumbs %}
+
     <ol class="breadcrumb-nav-list">
-      <li class="breadcrumb-nav-list-item">
-        <a class="nav-link" href="../{{ page.odoc.breadcrumbs.first.href }}">API</a>
-      </li>
-      {% assign breadcrumbs = page.odoc.breadcrumbs | where_exp:"item","item.name != 'index'" %}
+      {% assign breadcrumbs = page.url | split: "/" | shift %}
       {% for b in breadcrumbs %}
+      {% capture path %}{{ path }}/{{ b }}{% endcapture %}
+      {% if forloop.first %}
+      {% assign name = "API" %}
+      {% else %}
+      {% assign name = b %}
+      {% endif %}
       <li class="breadcrumb-nav-list-item">
         {% if forloop.last == false %}
-        <a class="nav-link" href="{{ b.href }}"> {{ b.name }} </a>
+        <a class="nav-link" href="{{ path }}"> {{ name }} </a>
         {% else %}
-        <span>{{ b.name }}</span>
+        <span>{{ name }}</span>
         {% endif %}
       </li>
       {% endfor %}
-      {% else %}
-      API
-      {% endif %}
     </ol>
   </nav>
   <div id="container" class="mainContainer">
