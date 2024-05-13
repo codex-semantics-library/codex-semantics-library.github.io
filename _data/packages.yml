@@ -1,0 +1,9 @@
+patricia-tree:
+  # Pretty name to print in headers
+  name: "Patricia Tree"
+  # Link to repository
+  github: https://github.com/codex-semantics-library/patricia-tree
+  # Latest version, show a warning on all other pages
+  latest-version: v0.10.0
+  # Dev version (also issue a warning, but a different one)
+  dev-version: main
