@@ -31,7 +31,22 @@ css: ["api", "pygments"]
     </ol>
   </nav>
 
-
+  {% comment %} ==== Search bar ==== {% endcomment %}
+  <script>
+    let base_url = '/api/{{ page.package }}/{{ page.version }}/';
+    let search_urls = [
+      '{{ site.url }}{{ site.baseurl }}/assets/js/db.{{page.package}}.{{page.version}}.js',
+      '{{ site.url }}{{ site.baseurl }}/assets/js/sherlodoc.js'
+    ];
+  </script>
+  <script src="/assets/js/odoc_search.js"></script>
+  <div class="odoc-search">
+    <div class="search-inner">
+      <input class="search-bar" placeholder="🔎 Search {{ page.package}}...">
+      <div class="search-snake"></div>
+      <div class="search-result"></div>
+    </div>
+  </div>
 
   {% comment %} ==== Main content ==== {% endcomment %}
   <div id="container" class="mainContainer">
