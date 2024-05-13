@@ -10,6 +10,11 @@ aux_links:
 
 logo: "/assets/codex.png"
 
+callouts:
+  warning:
+    title: Warning
+    color: red
+
 exclude: [
     Makefile,
     README.md,
