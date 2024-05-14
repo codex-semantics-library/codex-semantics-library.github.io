@@ -1,9 +1,19 @@
 patricia-tree:
   # Pretty name to print in headers
   name: "Patricia Tree"
+  # Description that appears on API page
+  description: |
+    Standalone library for the patricia-tree data structure used in Codex.
   # Link to repository
-  github: https://github.com/codex-semantics-library/patricia-tree
-  # Latest version, show a warning on all other pages
+  github:
+    username: codex-semantics-library
+    repository: patricia-tree
+  # Latest version, show a warning documentation pages of other version
+  # Also add a badge to the API page
   latest-version: v0.10.0
   # Dev version (also issue a warning, but a different one)
   dev-version: main
+  # OCaml version badge text
+  ocaml-version: 4.14_--_5.x
+  # Name of the package if released on opam
+  opam: patricia-tree
