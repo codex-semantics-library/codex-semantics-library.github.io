@@ -1,0 +1,35 @@
+---
+layout: default
+title: API
+has_children: true
+has_toc: false
+---
+
+<h1 id="packages">Packages</h1>
+
+{% for p in site.data.packages %}
+{% assign package = p[1] %}
+<h2 id="{{p[0]}}">{{ package.name }}</h2>
+
+<div style="margin-bottom: 0.4rem;">{{ package.description }}</div>
+
+<div class="linkrow">
+{% for shield in package.shields %}
+{%- if shield.link -%}
+<a href="{{shield.link}}"><img src="{{shield.shield}}" alt="{{shield.alt-text}}"/></a>
+{%- else -%}
+<img src="{{shield.shield}}" alt="{{shield.alt-text}}"/>
+{%- endif -%}
+{% endfor %}
+</div>
+
+<div class="linkrow">
+{%- if package.repository -%}
+<a href="{{package.repository}}">
+{% if package.repository-icon %}<i class="{{ package.repository-icon }}"></i>{% endif %}
+Repository</a>
+{%- endif -%}
+<a href="/api/{{ p[0] }}/{{ package.latest-version }}"><i class="fa fa-book"></i> Documentation (latest version)</a>
+<a href="/api/{{ p[0] }}/"><i class="fa fa-book"></i> Documentation (all versions)</a>
+</div>
+{% endfor %}
