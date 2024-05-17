@@ -52,13 +52,11 @@ css: ["api", "pygments"]
   <div id="container" class="mainContainer">
     <div class="pageAPI pages">
       {% assign name = page.odoc.breadcrumbs.last.name %}
-      {% unless name == "index" %}
-
       {% assign package = site.data.packages[page.package] %}
+
+      {% unless name == "index" %}
       <h1 id="{{ name }}"><a class="anchor" href="#{{name}}"></a>{{ package.name }} API - <code>{{ name }}</code></h1>
       {% endunless %}
-
-      {{ page.package }}
 
       {% if page.version != package.latest-version %}
       <p class="warning">
