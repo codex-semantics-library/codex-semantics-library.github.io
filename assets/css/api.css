@@ -401,10 +401,15 @@ p code,
 li code {
   border-radius: 3px;
   padding: 0 0.3ex;
+  color: #458;
 }
 
 :not(pre, figure) code {
   background-color: transparent;
+}
+
+a code {
+  color: var(--link-color);
 }
 
 code {
