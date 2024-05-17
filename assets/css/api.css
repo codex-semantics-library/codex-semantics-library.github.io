@@ -328,10 +328,10 @@ a.anchor:hover {
 
 .anchor {
   visibility: hidden;
-  margin-left: -1.3em;
+  margin-left: -1em;
   font-weight: normal;
   font-style: normal;
-  padding-right: 0.3em;
+  padding-right: 0.1em;
   padding-left: 0.4em;
   padding-top: 0px;
   margin-top: 0px;
