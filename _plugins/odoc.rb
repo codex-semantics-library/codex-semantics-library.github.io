@@ -42,8 +42,11 @@ module OdocPlugin
 
     def generate(site)
       pages = find_all_pages(site.data['api'])
+      site.data["odoc_pages"] = []
       pages.each do |path, data|
-        site.pages << OdocPage.new(site, path, data)
+        page = OdocPage.new(site, path, data)
+        site.pages << page
+        site.data["odoc_pages"] << page
       end
     end
   end
@@ -56,23 +59,31 @@ module OdocPlugin
       @basename = 'index'
       @ext = '.html'
       @name = @basename + @ext
+      # We can get package and version from path thanks to our custom folder structure.
+      # 'dune build @doc-json' generates a tree rooted at package:
+      # (./package-name, ./package-name/module, ./package-name/index.html...)
+      # We added a version layer:
+      # (./package-name/vX.Y.Z/, ./package-name/vX.Y.Z/module, ./package-name/vX.Y.Z/index.html...)
+      # The page at ./package-name is manually written (See api folder), it should list all versions.
+      package = path[0]
+      version = path[1]
       @data = {
         'odoc' => data,
         'layout' => 'odoc',
-        # We can get package and version from path thanks to our custom folder structure.
-        # 'dune build @doc-json' generates a tree rooted at package:
-        # (./package-name, ./package-name/module, ./package-name/index.html...)
-        # We added a version layer:
-        # (./package-name/vX.Y.Z/, ./package-name/vX.Y.Z/module, ./package-name/vX.Y.Z/index.html...)
-        # The page at ./package-name is manually written (See api folder), it should list all versions.
-        'package' => path[0],
-        'version' => path[1]
+        'package' => package,
+        'version' => version,
+        'title' => data["breadcrumbs"][-1]["name"] + " - " + package + "." + version,
+        'nav_exclude' => true,
+        'search_exclude' => true,
       }
       # If the current version matches the package latest version
-      # Add a redirect from /api/package/latest/path to this page
-      if path[1] == site.data["packages"][path[0]]["latest-version"] then
-        path_clone = [path[0]] + ["latest"] + path[2..-1] + ["index.html"]
+      if path[1] == site.data["packages"][package]["latest-version"] then
+        # Add a redirect from /api/package/latest/path to this page
+        path_clone = [package] + ["latest"] + path[2..-1] + ["index.html"]
         @data["redirect_from"] = "api/" + path_clone.join('/')
+        # Add the current page info to search
+        @data['content'] = data["preamble"] + data["content"]
+        @data['search_exclude'] = false
       end
     end
   end

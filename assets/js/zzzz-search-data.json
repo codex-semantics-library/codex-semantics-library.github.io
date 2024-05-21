@@ -1,6 +1,8 @@
 ---
 layout: null
 permalink: /assets/js/search-data.json
+# This is mostly verbatim from the just-the-docs github repository.
+# We only add odoc pages to the set of pages that appear in the search.
 ---
 {
 {%- assign i = 0 -%}
@@ -16,6 +18,11 @@ permalink: /assets/js/search-data.json
     {%- endif -%}
   {%- endfor -%}
 {%- endif -%}
+{%- for page in site.pages -%}
+  {%- if page.layout == "odoc" -%}
+    {%- assign pages_array = pages_array | push: page -%}
+  {%- endif -%}
+{%- endfor -%}
 {%- for pages in pages_array -%}
   {%- for page in pages -%}
     {%- if page.title and page.search_exclude != true -%}
