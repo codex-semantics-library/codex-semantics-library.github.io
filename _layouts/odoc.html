@@ -67,8 +67,8 @@ css: ["api", "pygments"]
         <br>
         <a href="/api/{{page.package}}/{{package.latest-version }}/{{page.path
             | split: '/'
-            | shift | shift | shift | shift
-            | join: ',' }}">Click here</a>
+            | shift | shift | shift
+            | join: '/' }}">Click here</a>
         to redirect to the latest version.
       </p>
       {% endif %}
