@@ -8,25 +8,19 @@ has_toc: false
 nav_order: 20
 ---
 
-<h1 id="packages">Packages</h1>
+# Packages
 
-<p>Codex includes the following ocaml packages.</p>
+Codex includes the following ocaml packages.
 
 {% for p in site.data.packages %}
 {% assign package = p[1] %}
-<h2 id="{{p[0]}}">{{ package.name }}</h2>
+## {{ package.name }}
 
-<div style="margin-bottom: 0.4rem;">{{ package.description }}</div>
+{: style="margin-bottom: 0.4rem;"}
+{{ package.description }}
 
-<div class="linkrow">
-{% for shield in package.shields %}
-{%- if shield.link -%}
-<a href="{{shield.link}}"><img src="{{shield.shield}}" alt="{{shield.alt-text}}"/></a>
-{%- else -%}
-<img src="{{shield.shield}}" alt="{{shield.alt-text}}"/>
-{%- endif -%}
-{% endfor %}
-</div>
+
+{% include shields.html package=package %}
 
 <div class="linkrow">
 {%- if package.repository -%}

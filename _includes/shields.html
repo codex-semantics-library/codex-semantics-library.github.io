@@ -1,0 +1,9 @@
+<div class="linkrow">
+  {% for shield in package.shields %}
+  {%- if shield.link -%}
+  <a href="{{shield.link}}"><img src="{{shield.shield}}" alt="{{shield.alt-text}}"/></a>
+  {%- else -%}
+  <img src="{{shield.shield}}" alt="{{shield.alt-text}}"/>
+  {%- endif -%}
+  {% endfor %}
+</div>
