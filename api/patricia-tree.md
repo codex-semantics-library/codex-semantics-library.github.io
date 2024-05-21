@@ -27,8 +27,8 @@ See any of these for more details on this library, what it can do, some
 small examples and the full documentation.
 
 
-- [patricia-tree – v0.9.0](v0.9.0/index.html) – latest version
-- [patricia-tree – main](main/index.html) – development version (unreleased)
+- [patricia-tree – v0.9.0](/api/patricia-tree/v0.9.0/index.html) – latest version
+- [patricia-tree – main](/api/patricia-tree/main/index.html) – development version (unreleased)
 
 Changes between versions are listed in the
 [changelog](https://github.com/codex-semantics-library/patricia-tree/blob/main/CHANGELOG.md).
