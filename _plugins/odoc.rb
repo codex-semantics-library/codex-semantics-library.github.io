@@ -60,6 +60,10 @@ module OdocPlugin
         'package' => path[0],
         'version' => path[1]
       }
+      if path[1] == site.data["packages"][path[0]]["latest-version"] then
+        path_clone = [path[0]] + ["latest"] + path[2..-1] + ["index.html"]
+        @data["redirect_from"] = "api/" + path_clone.join('/')
+      end
     end
   end
 end
