@@ -54,10 +54,6 @@ css: ["api", "pygments"]
       {% assign name = page.odoc.breadcrumbs.last.name %}
       {% assign package = site.data.packages[page.package] %}
 
-      {% unless name == "index" %}
-      <h1 id="{{ name }}"><a class="anchor" href="#{{name}}"></a>{{ package.name }} API - <code>{{ name }}</code></h1>
-      {% endunless %}
-
       {% if page.version != package.latest-version %}
       <p class="warning">
         {% if page.version == package.dev-version %}
@@ -76,6 +72,10 @@ css: ["api", "pygments"]
         to redirect to the latest version.
       </p>
       {% endif %}
+
+      {% unless name == "index" %}
+      <h1 id="{{ name }}"><a class="anchor" href="#{{name}}"></a>{{ package.name }} API - <code>{{ name }}</code></h1>
+      {% endunless %}
 
       {{ page.odoc.preamble }}
 
