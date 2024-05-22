@@ -7,12 +7,12 @@ patricia-tree:
   # Link to repository
   repository: https://github.com/codex-semantics-library/patricia-tree
   repository-icon: "fab fa-github"
-  # Latest version, show a warning documentation pages of other version
-  # Also add a badge to the API page
+  # Latest version, show a warning documentation pages of other version, with a link to latest
+  # A matching _data/api/<package>/<version> folder should exist.
   latest-version: v0.10.0
   # Dev version (also issue a warning, but a different one)
   dev-version: main
-  # Shields (img.shield.io) to decorate the package
+  # Shields (img.shield.io) to decorate the package (rendered in _includes/shields.html)
   shields:
     - shield: https://img.shields.io/badge/opam-patricia--tree-blue
       link: https://opam.ocaml.org/packages/patricia-tree/
@@ -29,8 +29,3 @@ patricia-tree:
     - shield: https://img.shields.io/github/actions/workflow/status/codex-semantics-library/patricia-tree/ocaml.yml
       link: https://github.com/codex-semantics-library/patricia-tree/actions/workflows/ocaml.yml
       alt-text: Build
-
-  # OCaml version badge text
-  ocaml-version: 4.14_--_5.x
-  # Name of the package if released on opam
-  opam: patricia-tree
