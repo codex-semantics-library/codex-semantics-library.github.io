@@ -1,7 +1,0 @@
-{
-  "ltex.language": "en-US",
-  "[html]": {
-    "editor.defaultFormatter": "sissel.shopify-liquid",
-    "editor.formatOnSave": true
-  }
-}
