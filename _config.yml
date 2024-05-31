@@ -14,6 +14,8 @@ callouts:
   warning:
     title: Warning
     color: red
+  note:
+    color: blue
 
 exclude: [
     Makefile,

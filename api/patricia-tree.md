@@ -21,14 +21,18 @@ the key's integer identifier.
 The source code of this library is available on [Github]("https://github.com/codex-semantics-library/patricia-tree)
 under an [LGPL-2.1](https://choosealicense.com/licenses/lgpl-2.1/) license.
 
+{: .note }
+For a quick overview of how to use the library, see the [examples](/api/patricia-tree/{{ site.data.packages.patricia-tree.latest-version }}/#examples).
+
 ## Documentation versions
 
 See any of these for more details on this library, what it can do, some
 small examples and the full documentation.
 
 
-- [patricia-tree – v0.9.0](/api/patricia-tree/v0.9.0/index.html) – latest version
-- [patricia-tree – main](/api/patricia-tree/main/index.html) – development version (unreleased)
+- [patricia-tree – v0.10.0](/api/patricia-tree/v0.10.0/) – latest version
+- [patricia-tree – v0.9.0](/api/patricia-tree/v0.9.0/)
+- [patricia-tree – main](/api/patricia-tree/main/) – development version (unreleased)
 
 Changes between versions are listed in the
 [changelog](https://github.com/codex-semantics-library/patricia-tree/blob/main/CHANGELOG.md).
