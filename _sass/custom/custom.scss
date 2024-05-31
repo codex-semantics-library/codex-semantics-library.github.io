@@ -47,12 +47,42 @@ div.linkrow {
   }
 }
 
-div.highlighter-rouge div.highlight {
-  background: lighten(#E5D780, 15%);
-  padding: 5px;
-  margin: 10px;
+.site-nav {
+  padding-top: 1rem;
 
-  pre {
-    background: inherit;
+  .site-nav {
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+  }
+}
+
+.highlight,
+pre.highlight,
+.highlight pre,
+.highlight .hll,
+div.highlighter-rouge {
+  background: #f2ebc0;
+}
+
+div.nav-collapse {
+  padding-top: 1rem;
+  width: 100%;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 10px;
+
+  span {
+    margin: 0 10px;
+  }
+
+  &:before,
+  &:after {
+    background: #000;
+    content: "";
+    height: 1px;
+    flex: 1;
   }
 }

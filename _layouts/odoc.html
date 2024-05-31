@@ -1,0 +1,86 @@
+---
+title: Codex API
+layout: default
+compress_html: blanklines
+css: ["api", "pygments"]
+---
+
+<script src="/assets/js/highlight.pack.js"></script>
+<script>hljs.highlightAll();</script>
+
+<div id="wrapper" class="hfeed">
+  {% comment %} ==== Breadcrumbs ==== {% endcomment %}
+  <nav class="breadcrumb-nav" aria-label="breadcrumb">
+    <ol class="breadcrumb-nav-list">
+      {% assign breadcrumbs = page.url | split: "/" | shift %}
+      {% for b in breadcrumbs %}
+      {% capture path %}{{ path }}/{{ b }}{% endcapture %}
+      {% if forloop.first %}
+      {% assign name = "API" %}
+      {% else %}
+      {% assign name = b %}
+      {% endif %}
+      <li class="breadcrumb-nav-list-item">
+        {% if forloop.last == false %}
+        <a class="nav-link" href="{{ path }}"> {{ name }} </a>
+        {% else %}
+        <span>{{ name }}</span>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+  </nav>
+
+  {% comment %} ==== Search bar ==== {% endcomment %}
+  <script>
+    let base_url = '/api/{{ page.package }}/{{ page.version }}/';
+    let search_urls = [
+      '{{ site.url }}{{ site.baseurl }}/assets/js/sherlodoc-db/{{page.package}}.{{page.version}}.js',
+      '{{ site.url }}{{ site.baseurl }}/assets/js/sherlodoc.js'
+    ];
+  </script>
+  <script src="/assets/js/odoc_search.js"></script>
+  <div class="odoc-search">
+    <div class="search-inner">
+      <input class="search-bar" placeholder="🔎 Search {{ page.package}} API...">
+      <div class="search-snake"></div>
+      <div class="search-result"></div>
+    </div>
+  </div>
+
+  {% comment %} ==== Main content ==== {% endcomment %}
+  <div id="container" class="mainContainer">
+    <div class="pageAPI pages">
+      {% assign name = page.odoc.breadcrumbs.last.name %}
+      {% assign package = site.data.packages[page.package] %}
+
+      {% if page.version != package.latest-version %}
+      <p class="warning">
+        {% if page.version == package.dev-version %}
+        This is documentation for the <b>development version</b> of {{package.name}},
+        the latest released version is
+        {% else %}
+        This is documentation for version <b>{{ page.version }}</b> of {{ page.package }},
+        but the latest version is
+        {% endif %}
+        <b><a href="/api/{{page.package}}/{{package.latest-version }}">{{ package.latest-version }}</a></b>.
+        <br>
+        <a href="/api/{{page.package}}/{{package.latest-version }}/{{page.path
+            | split: '/'
+            | shift | shift | shift
+            | join: '/' }}">Click here</a>
+        to redirect to the latest version.
+      </p>
+      {% endif %}
+
+      {% unless name == "index" %}
+      <h1 id="{{ name }}"><a class="anchor" href="#{{name}}"></a>{{ package.name }} API - <code>{{ name }}</code></h1>
+      {% endunless %}
+
+      {{ page.odoc.preamble }}
+
+      {{ page.odoc.content }}
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
