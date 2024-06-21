@@ -36,6 +36,7 @@
       venue-acronym: "POPL"
 #      ranking: "A*"
       award: "Distinguished Paper Award"
+      easy-summary: /papers/2023-popl-ssa-translation-is-an-abstract-interpretation.html
       doi: 10.1145/3571258
       artifact: https://dl.acm.org/do/10.1145/3554341/full/
       artifact-evaluated-reusable: true
