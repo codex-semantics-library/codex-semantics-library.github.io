@@ -1,0 +1,1 @@
+(int with self >= 0) abs((int with self >= 0-1000) x);
