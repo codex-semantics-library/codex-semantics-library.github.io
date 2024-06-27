@@ -87,14 +87,14 @@ nav_order: 10
         {% endif %}
       </div>
       {% if p.award %}
-      <i class="fas fa-award"></i> <b>{{ p.award }}</b></a>
+      <div><i class="fas fa-award"></i> <b>{{ p.award }}</b></a></div>
       {% endif %}
 
       {% if p.comment %}
-      <br>
-      <it>{{ p.comment }}</i>
-        &nbsp;
-        {% endif %}
+      <div>
+        <it>{{ p.comment }}</i>
+      </div>
+      {% endif %}
     </div>
     {% endfor %}
     {% endfor %}
