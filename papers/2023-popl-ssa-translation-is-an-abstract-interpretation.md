@@ -24,13 +24,13 @@ numbering becomes a prerequisite of SSA translation, instead of
 depending on SSA.
 
 One application to performing SSA Translation by Abstract
-Interpretation is that SSA optimisations passes can be implemented as
+Interpretation is that SSA optimizations passes can be implemented as
 a combination of abstract domains, allowing to perform several
 optimizations simultaneously to solve the usual phase ordering problem
-and avoiding tedious maintainance of SSA invariants.
+and avoiding tedious maintenance of SSA invariants.
 
 Our main motivation for this research is the design of Codex, an
-analyser for machine code which uses SSA as its main intermediate
+analyzer for machine code which uses SSA as its main intermediate
 representation. Machine code is too low-level to allow SSA translation
 without a prior semantic analysis, while SSA is an intermediate
 representation that makes static analysis easier than direct analysis
@@ -50,4 +50,3 @@ its executable.
 - Read the **paper**: either [published version](https://doi.acm.org?doi=3656392) or the [version with appendices](/assets/publications/pdfs/2023-popl-ssa-translation-is-an-abstract-interpretation-with-appendices.pdf)
 - Look at the [slides](/assets/publications/slides/2023-popl-ssa-translation-is-an-abstract-interpretation-slides.pdf) or watch the [video of the talk](https://www.youtube.com/watch?v=wkIfcN3Ipd4)
 - Download the [software artifact](https://zenodo.org/records/10895582) which can be used as a reference implementation of our technique.
-
