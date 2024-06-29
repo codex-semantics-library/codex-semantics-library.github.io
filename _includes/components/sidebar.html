@@ -21,7 +21,7 @@
     </button>
   </div>
 
-  <nav class="site-nav">
+  <nav class="site-nav" id="site-nav">
     {% if page.odoc.toc and page.odoc.toc != empty %}
     <div class="nav-collapse"><span>Site navigation</span></div>
     {% endif %}
@@ -30,7 +30,7 @@
 
     {% if page.odoc.toc and page.odoc.toc != empty %}
     <div class="nav-collapse"><span>Page contents</span></div>
-    <nav class="site-nav">
+    <nav>
     <ul class="nav-list">
       {%- for node in page.odoc.toc -%}
         <li class="nav-list-item active">
