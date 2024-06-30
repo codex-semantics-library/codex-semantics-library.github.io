@@ -15,86 +15,19 @@ nav_order: 10
     {% for y in site.data.publications %}
     {% for p in y.publications %}
     <div class="article-container" style="margin-bottom: 30px;">
-      [<b>{{ p.venue-acronym }} {{ y.year }}</b>] <u>{{ p.title }}</u>
-      {% if p.doi %} <a href="https://dx.doi.org/{{ p.doi }}" style="opacity: 50%;">{{ p.doi }}</a> {% endif %}
-      <br>
-      {% for a in p.authors %}
-      <i>{{ a.name }}</i>{% if forloop.last %}{% else %},{% endif %}
-      {% endfor %}
-      <br>
-      {{ p.venue }}
-      {% if p.ranking %} <br> <b>Core ranking: </b> {{ p.ranking }} {% endif %}
-      {% if p.artifact-evaluated-functional or p.artifact-evaluated-reusable or p.artifact-available or
-      p.results-replicated or p.results-reproduced or p.artifact-custom-image %}
-      <br>
-      {% endif %}
-      {% if p.artifact-custom-image %}
-      <img src="{{ p.artifact-custom-image }}" width="{{ p.artifact-custom-image-width | default:35 }}"
-        height="{{ p.artifact-custom-image-height | default:35 }}">
-      &nbsp;
-      {% endif %}
-      {% if p.artifact-evaluated-functional %}
-      <img src="/assets/img/artifacts_evaluated_functional.png" alt="ACM Badge Artifact Functional" width="35"
-        height="35">
-      &nbsp;
-      {% endif %}
-      {% if p.artifact-evaluated-reusable %}
-      <img src="/assets/img/artifacts_evaluated_reusable.png" alt="ACM Badge Artifact Reusable" width="35" height="35">
-      &nbsp;
-      {% endif %}
-      {% if p.artifact-available %}
-      <img src="/assets/img/artifacts_available.png" alt="ACM Badge Artifact Available" width="35" height="35">
-      &nbsp;
-      {% endif %}
-      {% if p.results-replicated %}
-      <img src="/assets/img/results_replicated.png" alt="ACM Badge Results Replicated" width="35" height="35">
-      &nbsp;
-      {% endif %}
-      {% if p.results-reproduced %}
-      <img src="/assets/img/results_reproduced.png" alt="ACM Badge Results Reproduced" width="35" height="35">
-      &nbsp;
-      {% endif %}
-      <div class="linkrow">
-        {% if p.easy-summary %}
-        <a href="{{ p.easy-summary }}"> <i class="fas fa-lightbulb"></i> <b>In a
-            nutshell</b></a>
-        {% endif %}
-        {% if p.pdf %}
-        <a href="{{ p.pdf }}" target="_blank"> <i class="fas fa-file-pdf"></i>
-          <b>PDF</b></a>
-        {% endif %}
-        {% if p.pdf-with-appendix %}
-        <a href="{{ p.pdf-with-appendix }}" target="_blank"> <i class="fas fa-file-pdf"></i>
-          <b>{{ p.pdf-with-appendix-caption | default: "PDF with appendix" }}</b></a>
-        {% endif %}
-        {% if p.bibtex %}
-        <a href="{{ p.bibtex }}" target="_blank"> <i class="fas fa-quote-left"></i>
-          <b>Bibtex</b></a>
-        {% endif %}
-        {% if p.artifact %}
-        <a href="{{ p.artifact }}" target="_blank"> <i class="fas fa-laptop-code"></i>
-          <b>Artifact</b></a>
-        {% endif %}
-        {% if p.benchmark %}
-        <a href="{{ p.benchmark }}" target="_blank"> <i class="fas fa-tachometer-alt"></i> <b>Benchmark</b></a>
-        {% endif %}
-        {% if p.talk-video %}
-        <a href="{{ p.talk-video }}" target="_blank"> <i class="fas fa-play-circle"></i>
-          <b>Talk</b></a>
-        {% endif %}
-        {% if p.talk-slides %}
-        <a href="{{ p.talk-slides }}" target="_blank"> <i class="fas fa-file-powerpoint"></i> <b>Slides</b></a>
-        {% endif %}
-      </div>
-      {% if p.award %}
-      <div><i class="fas fa-award"></i> <b>{{ p.award }}</b></a></div>
-      {% endif %}
-
-      {% if p.comment %}
       <div>
-        <it>{{ p.comment }}</i>
+        [<b>{{ p.venue-acronym }} {{ y.year }}</b>] 
+        <u>{{ p.title }}</u>
+        {% if p.doi %} <a href="https://dx.doi.org/{{ p.doi }}" style="opacity: 50%;">{{ p.doi }}</a> {% endif %}
       </div>
-      {% endif %}
+      <div>
+        {% for a in p.authors %}
+          <i>{{ a.name }}</i>{% if forloop.last %}{% else %},{% endif %}
+        {% endfor %}
+      </div>
+      <div>{{ p.venue }}</div>
+      {%- include paper_artifacts.html paper=p -%}
+      {%- include paper_links.html paper=p nutshell=true -%}
     </div>
     {% endfor %}
     {% endfor %}

@@ -1,0 +1,36 @@
+
+{% if include.paper.artifact-evaluated-functional 
+   or include.paper.artifact-evaluated-reusable 
+   or include.paper.artifact-available 
+   or include.paper.results-replicated
+   or include.paper.results-reproduced
+   or include.paper.artifact-custom-image %}
+<div>
+  {% if include.paper.artifact-custom-image %}
+  <img src="{{ include.paper.artifact-custom-image }}" width="{{ include.paper.artifact-custom-image-width | default:35 }}"
+    height="{{ include.paper.artifact-custom-image-height | default:35 }}">
+  &nbsp;
+  {% endif %}
+  {% if include.paper.artifact-available %}
+  <img src="/assets/img/artifacts_available.png" alt="ACM Badge Artifact Available" width="35" height="35">
+  &nbsp;
+  {% endif %}
+  {% if include.paper.artifact-evaluated-functional %}
+  <img src="/assets/img/artifacts_evaluated_functional.png" alt="ACM Badge Artifact Functional" width="35"
+    height="35">
+  &nbsp;
+  {% endif %}
+  {% if include.paper.artifact-evaluated-reusable %}
+  <img src="/assets/img/artifacts_evaluated_reusable.png" alt="ACM Badge Artifact Reusable" width="35" height="35">
+  &nbsp;
+  {% endif %}
+  {% if include.paper.results-replicated %}
+  <img src="/assets/img/results_replicated.png" alt="ACM Badge Results Replicated" width="35" height="35">
+  &nbsp;
+  {% endif %}
+  {% if include.paper.results-reproduced %}
+  <img src="/assets/img/results_reproduced.png" alt="ACM Badge Results Reproduced" width="35" height="35">
+  &nbsp;
+  {% endif %}
+</div>
+{% endif %}

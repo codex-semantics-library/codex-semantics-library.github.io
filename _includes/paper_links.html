@@ -1,0 +1,40 @@
+<div class="linkrow">
+  {% if include.paper.easy-summary and include.nutshell %}
+  <a href="{{ include.paper.easy-summary }}"> <i class="fas fa-lightbulb"></i> <b>In a
+      nutshell</b></a>
+  {% endif %}
+  {% if include.paper.pdf %}
+  <a href="{{ include.paper.pdf }}" target="_blank"> <i class="fas fa-file-pdf"></i>
+    <b>PDF</b></a>
+  {% endif %}
+  {% if include.paper.pdf-with-appendix %}
+  <a href="{{ include.paper.pdf-with-appendix }}" target="_blank"> <i class="fas fa-file-pdf"></i>
+    <b>{{ include.paper.pdf-with-appendix-caption | default: "PDF with appendix" }}</b></a>
+  {% endif %}
+  {% if include.paper.bibtex %}
+  <a href="{{ include.paper.bibtex }}" target="_blank"> <i class="fas fa-quote-left"></i>
+    <b>Bibtex</b></a>
+  {% endif %}
+  {% if include.paper.artifact %}
+  <a href="{{ include.paper.artifact }}" target="_blank"> <i class="fas fa-laptop-code"></i>
+    <b>Artifact</b></a>
+  {% endif %}
+  {% if include.paper.benchmark %}
+  <a href="{{ include.paper.benchmark }}" target="_blank"> <i class="fas fa-tachometer-alt"></i> <b>Benchmark</b></a>
+  {% endif %}
+  {% if include.paper.talk-video %}
+  <a href="{{ include.paper.talk-video }}" target="_blank"> <i class="fas fa-play-circle"></i>
+    <b>Talk</b></a>
+  {% endif %}
+  {% if include.paper.talk-slides %}
+  <a href="{{ include.paper.talk-slides }}" target="_blank"> <i class="fas fa-file-powerpoint"></i> <b>Slides</b></a>
+  {% endif %}
+</div>
+{% if include.paper.award %}
+<div><i class="fas fa-award"></i> <b>{{ include.paper.award }}</b></a></div>
+{% endif %}
+{% if include.paper.comment %}
+<div>
+  <it>{{ include.paper.comment }}</i>
+</div>
+{% endif %}
