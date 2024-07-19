@@ -12,6 +12,16 @@
 <link rel="stylesheet" href="/assets/css/{{ css }}.css">
 {% endfor %}
 
-{% raw %}
 <meta name="twitter:card"  content="summary" />
-{% endraw %}
+{% if paper %}
+<meta name="og:title"  content="{{ paper.title }}" />
+<meta name="twitter:title"  content="{{ paper.title }}" />
+{% else %}
+<meta name="og:title"  content="{{ page.title }}" />
+<meta name="twitter:title"  content="{{ page.title }}" />
+{% endif %}
+{% if page.abstract %}
+    <meta name="twitter:description" content="{{ page.abstract | truncate: 197 | strip_html }}" />
+{% else %}
+    <meta name="twitter:description" content="{{ page.content | truncate: 197 | strip_html }}" />
+{% endif %}
