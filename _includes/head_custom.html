@@ -12,7 +12,13 @@
 <link rel="stylesheet" href="/assets/css/{{ css }}.css">
 {% endfor %}
 
+
+{% if page.twitter_image %}
+<meta property="og:image" content="{{ page.twitter_image | absolute_url }}" />
+<meta name="twitter:card"  content="summary_large_image" />
+{% else %}
 <meta name="twitter:card"  content="summary" />
+{% endif %}
 {% if paper %}
 <meta name="og:title"  content="{{ paper.title }}" />
 <meta name="twitter:title"  content="{{ paper.title }}" />
