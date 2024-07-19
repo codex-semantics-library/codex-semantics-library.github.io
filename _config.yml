@@ -5,6 +5,10 @@ color_scheme: myscheme
 
 url: https://codex.top
 
+twitter:
+  username: lemerre_m
+  card: "summary"
+
 aux_links:
   '<i class="fab fa-github"></i> &nbsp; Repository': https://github.com/codex-semantics-library/codex
 
