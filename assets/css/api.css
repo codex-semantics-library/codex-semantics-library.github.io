@@ -715,19 +715,35 @@ td.def-doc *:first-child {
 
 /* Tables */
 
+.table-wrapper {
+  box-shadow: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  min-width: 0;
+}
+
 .odoc-table {
   margin: 1em;
 }
 
 .odoc-table td,
-.odoc-table th {
-  padding-left: 0.5em;
-  padding-right: 0.5em;
+.odoc-table th,
+.odoc-table tr:last-of-type td,
+.odoc-table tr:last-of-type th {
+  padding: 0.3em 0.5em;
+  min-width: 0;
   border: 1px solid black;
 }
 
 .odoc-table th {
   font-weight: bold;
+}
+
+.odoc-table p:only-child {
+  margin: 0;
 }
 
 /* Mobile adjustements. */
