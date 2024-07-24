@@ -22,7 +22,7 @@
       pdf: /assets/publications/pdfs/2024-pldi-compiling-with-abstract-interpretation.pdf
       pdf-with-appendix: /assets/publications/pdfs/2024-pldi-compiling-with-abstract-interpretation-with-appendices.pdf
       talk-slides: /assets/publications/slides/2024-pldi-compiling-with-abstract-interpretation.pdf
-      talk-video: "https://youtu.be/By6HZllFBWo?list=PLyrlk8Xaylp6XYPbTIscsn49yFEFlxUp-&t=4089"
+      talk-video: "https://www.youtube.com/watch?v=2Btkn9AvM8o"
       bibtex: /assets/publications/bibtex/2024-pldi-compiling-with-abstract-interpretation.bib
       comment: "Also presented at AFADL 2024"
       topics:
