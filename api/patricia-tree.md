@@ -18,7 +18,7 @@ Patricia Trees, as described in Okasaki and Gill's 1998 paper
 It is a space-efficient prefix trie over the big-endian representation of
 the key's integer identifier.
 
-The source code of this library is available on [Github]("https://github.com/codex-semantics-library/patricia-tree)
+The source code of this library is available on [Github](https://github.com/codex-semantics-library/patricia-tree)
 under an [LGPL-2.1](https://choosealicense.com/licenses/lgpl-2.1/) license.
 
 {: .note }
