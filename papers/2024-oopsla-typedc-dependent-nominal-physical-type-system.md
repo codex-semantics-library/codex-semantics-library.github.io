@@ -36,9 +36,99 @@ automatically, requiring only a small amount of type annotations.
 
 ## Example
 
+This examples comes from our
+[tutorial](/docs/tutorial_oopsla2024.pdf), and extracted from an OS
+code that we have analyzed.
 
-TODO
+Suppose that we are given a function in a library described using the following header file:
 
+```c
+struct message {
+  struct message *next;
+  char *buffer;
+};
+
+struct message_box {
+  int length;
+  struct message *first;
+};
+
+void zeros_buffer(struct message_box* box);
+```
+
+An examples of a memory layout that would fit this description is the following one:
+
+<img src="/assets/publications/imgs/2024-oopsla-struct_layout.png"
+style="width:700px; display:block; margin-left:auto; margin-right:auto">
+
+Here, we assumed that `message` is a singly-linked list, and that the `char *` pointer points to a single char.
+
+Now, we want to verify that the implementation of `zeros_buffer`, a function that sets all the buffers in the `message_box` to zero, is memory-safe.
+
+```c
+void zeros_buffer(struct message_box *box) {
+    
+    struct message * first = box->first;
+    struct message * current = first;
+    
+    int length = box->length;
+    
+    do {
+        for (int i = 0; i < length; i++) {
+            current->buffer[i] = 0 ;
+        }
+        current = current->next;
+    } while(current != first) ;
+}
+```
+
+Note that this function is memory-safe only if the `box` parameter follows some invariants, in particular:
+- The list of `message`s is circular (the code never tests the `next` field to see if it can be a null pointer)
+- Each `message` points to a `buffer` whose size corresponds to `box->length`.
+
+So, if we try to analyze this code as is, Codex will correctly report that the code is not memory safe. Indeed, a main feature of Codex is that the analysis is sound: if there is a spatial memory safety issue, it should report it.
+
+Luckily, it is easy to express the required invariants in our type system. It suffices to copy the header file, and edit it as follows:
+
+```c
+struct message(len) { 
+   struct message(len)+ next;
+   char[len]+ buffer;
+};
+
+∃ mlen:integer with self > 0. 
+struct message_box { 
+  (integer with self = mlen) length;
+  struct message(mlen)+ first;
+};
+
+void zeros_buffer(struct message_box+ box);
+```
+
+Here, the `+` for the pointer types (instead of the `*`) indicates
+that the corresponding pointer is never null. The `struct message`
+type now receives a `len` parameter corresponding to the length of the
+`buffer` that it contains. Finally, the `struct message_box` type is
+modified to include an invariant between the `length` field and the
+`len` parameter of the message (i.e., the length of the buffers).
+
+A possible layout for this description is the following one:
+
+<img src="/assets/publications/imgs/2024-oopsla-parametrized_layout.png"
+style="width:700px; display:block; margin-left:auto; margin-right:auto">
+
+Now, this updated header file is not for the C compiler, but is used
+by our Codex tool, that can now verify that `zeros_buffer` is
+memory-safe (as it does not report any alarm) automatically. Note that
+this proof relies on the hypothesis that the `box` argument of
+`zeros_buffer` correspond to the memory layout described by the types;
+but that in any analyzed function that would call `zeros_buffer`, we
+would check this hypothesis. Thus, if you verify all the functions in
+a program, we prove it memory-safe.
+
+Finally, this verification of `zeros_buffer` can be make not only on
+the C source code, but also on the compiled machine code, i.e. Codex
+can perform type-checking of both C and machine code automatically!
 
 ## Key contributions and take-away
 
