@@ -2,7 +2,7 @@
 # All detailed paper info is in _data/publication.yml
 layout: paper
 parent: Publications
-title: "PLDI'24 Research Paper"
+title: "PLDI'24"
 categories: new publication
 date: 2024-04-22
 nav_order: 2024-04-22

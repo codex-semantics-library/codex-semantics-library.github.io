@@ -1,7 +1,7 @@
 ---
 layout: paper
 parent: Publications
-title:  "SAS'24: research paper"
+title:  "SAS'24"
 categories: new publication
 paper-title: "Trace Partitioning as an Optimization Problem"
 topic: "Static Analysis; Abstract interpretation; Trace Partitioning"

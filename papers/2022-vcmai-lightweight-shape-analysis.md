@@ -1,7 +1,7 @@
 ---
 layout: paper
 parent: Publications
-title:  "VMCAI'22 Research Paper"
+title:  "VMCAI'22"
 categories: new publication
 date: 2021-11-24
 nav_order: 2021-11-24

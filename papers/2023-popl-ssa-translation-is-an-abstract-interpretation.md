@@ -2,7 +2,7 @@
 # All detailed paper info is in _data/publication.yml
 layout: paper
 parent: Publications
-title: "POPL'23 Research Paper"
+title: "POPL'23"
 categories: new publication
 date: 2023-01-01
 nav_order: 2023-01-01
