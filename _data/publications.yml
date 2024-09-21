@@ -6,6 +6,22 @@
 # otherwise the _layout/paper.html WILL break (it looks into this DB for a matching entry)
 - year: 2024
   publications:
+    - title: "A Dependent Nominal Physical Type System for Static Analysis of Memory in Low Level Code"
+      authors:
+        - name: Julien Simonnet
+        - name: Matthieu Lemerre
+        - name: Mihaela Sighireanu
+      venue: OOPSLA 2024
+      venue-acronym: OOPSLA
+      artifact: https://zenodo.org/records/13383433
+      artifact-evaluated-reusable: true
+      artifact-available: true      
+      easy-summary: /papers/2024-oopsla-typedc-dependent-nominal-physical-type-system.html
+      pdf: /assets/publications/pdfs/2024-oopsla-full-with-appendices.pdf
+      topics:
+        - abstract interpretation
+        - memory safety
+        - Typed C
     - title: "Trace Partitioning as an Optimization Problem"
       authors:
         - name: Charles Babu M
@@ -19,7 +35,10 @@
       artifact-custom-image-width: "122"
       artifact-custom-image-height: "70"
       easy-summary: /papers/2024-sas-trace-partitioning-as-an-optimization-problem.html
-      pdf: /assets/publications/pdfs/2024-sas-tpop.pdf    
+      pdf: /assets/publications/pdfs/2024-sas-tpop.pdf
+      topics:
+        - abstract interpretation
+        - trace partitioning
     - title: "Compiling with Abstract Interpretation"
       authors:
         - name: Dorian Lesbre

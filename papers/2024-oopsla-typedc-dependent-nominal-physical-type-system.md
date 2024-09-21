@@ -1,11 +1,13 @@
 ---
-# All detailed paper info is in _data/publication.yml
 layout: paper
 parent: Publications
 title: "OOPSLA'24"
 categories: new publication
-date: 2024-08-28
-nav_order: 2024-08-28
+paper-title: "A Dependent Nominal Physical Type System for Static Analysis of Memory in Low Level Code"
+topic: "Static Analysis; Abstract interpretation; Memory Safety"
+pdf: "/assets/publications/pdfs/2024-oopsla-full-with-appendices.pdf"
+date: 2024-09-21
+nav_order: 2024-09-21
 ---
 
 ## Context
