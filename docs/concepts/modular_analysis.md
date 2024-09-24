@@ -4,7 +4,9 @@ title: Modular analysis
 parent: Concepts
 ---
 
-A modular analysis can analyze *parts* of a program, for instance,
+# Modular analysis
+
+A **modular analysis** can analyze *parts* of a program, for instance,
 analyze a function `f` without having access to the code of the
 functions that call `f` or are called by `f`.
 
