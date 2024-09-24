@@ -4,7 +4,7 @@ title: Whole-program analysis
 parent: Concepts
 ---
 
-## Whole program analysis
+## Whole-program analysis
 
 A **whole-program analysis** requires the analyzer to know the entire
 program to start. It thus cannot[^1] be applied to parts of a program like
