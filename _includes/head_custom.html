@@ -1,7 +1,17 @@
-{% comment %} Access to the EB Garamond font. The parameters after wght is the normal and bold weights. {% endcomment %}
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@403;700&display=swap" rel="stylesheet">
+
+{% comment %} Access to the EB Garamond font. The parameters after wght is the normal and bold weights.
+Note: we used to use google fonts for this like this:
+
+But for privacy reasons, we now self-host the fonts.
+We use the google-webfonts-helper https://gwfh.mranftl.com/fonts/eb-garamond?subsets=latin
+for this.
+
+Garamond is used for text, and fondamento for the sidebar.
+<!-- <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@403;700&display=swap" rel="stylesheet"> -->
+<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fondamento:wght@400&display=swap"> -->
+{% endcomment %}
+<link href="/assets/fonts/fonts.css" rel="stylesheet">
 {% comment %} <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica:wght@400&display=swap"> {% endcomment %}
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fondamento:wght@400&display=swap">
 {% comment %} <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Modern+Antiqua:wght@400&display=swap"> {% endcomment %}
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
 <!-- {{ page.css }} -->
