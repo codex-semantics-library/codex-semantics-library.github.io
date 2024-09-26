@@ -22,14 +22,14 @@ rules. The compiler assumes that you do not make these mistakes, which
 are not checked, meaning that if you do make them, your program
 may crash, corrupt memory, or exhibit other unpredictable
 behaviors. Moreover, these mistakes can be exploited by an attacker to
-take control of the execution of the processus running your program,
+take control of your program,
 and this represents both the most common and the most severe kind of
 security vulnerabilities.
 
 
 Thus, it is important to ensure that your program is free from
-these undefined behaviors. Providing tools that do this in a
-practical way is one of the main purposes behind the development of
+these undefined behaviors. Providing tools that do this practically
+is one of the main purposes behind the development of
 [Codex](https://codex.top), a sound static analyzer based on abstract
 interpretation. The paper focuses on particular method that can
 ensure spatial memory safety of C or binary programs almost
@@ -38,18 +38,20 @@ automatically, requiring only a small amount of type annotations.
 
 ## Example
 
-This examples comes from our
+This example comes from our
 [tutorial](/docs/tutorial_oopsla2024.pdf), and extracted from an OS
 code that we have analyzed.
 
 Suppose that we are given a function in a library described using the following header file:
 
 ```c
+// Linked list of messages, each containing a fixed-length buffer
 struct message {
   struct message *next;
   char *buffer;
 };
 
+// Wrapper around the linked list, specifies the length of all buffers
 struct message_box {
   int length;
   struct message *first;
@@ -58,23 +60,23 @@ struct message_box {
 void zeros_buffer(struct message_box* box);
 ```
 
-An examples of a memory layout that would fit this description is the following one:
+An example of a memory layout that would fit this description is the following one:
 
 <img src="/assets/publications/imgs/2024-oopsla-struct_layout.png"
 style="width:700px; display:block; margin-left:auto; margin-right:auto">
 
-Here, we assumed that `message` is a singly-linked list, and that the `char *` pointer points to a single char.
+In the image, we assumed that `message` is a singly-linked list, and that the `char *` pointer points to a single char.
 
 Now, we want to verify that the implementation of `zeros_buffer`, a function that sets all the buffers in the `message_box` to zero, is memory-safe.
 
 ```c
 void zeros_buffer(struct message_box *box) {
-    
+
     struct message * first = box->first;
     struct message * current = first;
-    
+
     int length = box->length;
-    
+
     do {
         for (int i = 0; i < length; i++) {
             current->buffer[i] = 0 ;
@@ -85,21 +87,22 @@ void zeros_buffer(struct message_box *box) {
 ```
 
 Note that this function is memory-safe only if the `box` parameter follows some invariants, in particular:
-- The list of `message`s is circular (the code never tests the `next` field to see if it can be a null pointer)
-- Each `message` points to a `buffer` whose size corresponds to `box->length`.
+1. Each `message` points to a `buffer` whose size corresponds to `box->length`.
+2. The list of `message`s is circular (the code never tests the `next` field to see if it can be a null pointer)
+
 
 So, if we try to analyze this code as is, Codex will correctly report that the code is not memory safe. Indeed, a main feature of Codex is that the analysis is sound: if there is a spatial memory safety issue, it should report it.
 
 Luckily, it is easy to express the required invariants in our type system. It suffices to copy the header file, and edit it as follows:
 
 ```c
-struct message(len) { 
+struct message(len) {
    struct message(len)+ next;
    char[len]+ buffer;
 };
 
-∃ mlen:integer with self > 0. 
-struct message_box { 
+∃ mlen:integer with self > 0.
+struct message_box {
   (integer with self = mlen) length;
   struct message(mlen)+ first;
 };
@@ -123,12 +126,20 @@ Now, this updated header file is not for the C compiler, but is used
 by our Codex tool, that can now verify that `zeros_buffer` is
 memory-safe (as it does not report any alarm) automatically. Note that
 this proof relies on the hypothesis that the `box` argument of
-`zeros_buffer` correspond to the memory layout described by the types;
-but that in any analyzed function that would call `zeros_buffer`, we
-would check this hypothesis. Thus, if you verify all the functions in
-a program, we prove it memory-safe.
+`zeros_buffer` correspond to the memory layout described by the types.
+This assumption is checked in any analyzed function that would call `zeros_buffer`.
+Thus, if you verify all the functions in a program, we prove it memory-safe.
 
-Finally, this verification of `zeros_buffer` can be make not only on
+{: .note }
+While codex **ensures spatial memory safety** (no invalid pointer read/write),
+it does **not ensure termination**.
+Even with our given types, the `zeros_buffer` function may loop infinitely.
+Indeed, we cannot express the invariant stating the list is circular. It is sort
+of implied by the constraints that the `next` pointer is never null, since memory
+is finite, the list will eventually reach a loop. However, we may have a lasso-shape,
+where the first few `message`s are not part of that loop.
+
+Finally, this verification of `zeros_buffer` can be made not only on
 the C source code, but also on the compiled machine code, i.e. Codex
 can perform type-checking of both C and machine code automatically!
 
@@ -140,7 +151,7 @@ inspired by that of C, as the basis for this abstraction. While
 initial versions of this type system have been proposed in
 [VMCAI'22](/papers/2022-vcmai-lightweight-shape-analysis.html) and
 used in [RTAS'21](/papers/2021-rtas-no-crash-no-exploit.html), this
-paper extends it significatively with new features like support for
+paper extends it significantly with new features like support for
 union, parameterized, and existential types. The paper shows how to
 combine all these features to encode many complex low-level idioms,
 such as flexible array members or discriminated unions using a memory
@@ -154,7 +165,7 @@ memory area whose length corresponds to the contents of this
 integer". Thus, a type system that can be used to guarantee memory
 safety must use dependent types. This makes type checking particularly
 complex, which is why we use abstract interpretation to type-check the
-program. Abstract interpretation also allows automatical infererence
+program. Abstract interpretation also allows automatic inference
 of other kinds of program invariants (beyond those expressed by the
 type system), that helps the overall analysis to type-check the
 program and verify its spatial memory safety.
