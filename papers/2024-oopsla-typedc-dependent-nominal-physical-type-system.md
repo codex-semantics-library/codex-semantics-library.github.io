@@ -130,14 +130,14 @@ this proof relies on the hypothesis that the `box` argument of
 This assumption is checked in any analyzed function that would call `zeros_buffer`.
 Thus, if you verify all the functions in a program, we prove it memory-safe.
 
-{: .note }
-While codex **ensures spatial memory safety** (no invalid pointer read/write),
-it does **not ensure termination**.
-Even with our given types, the `zeros_buffer` function may loop infinitely.
-Indeed, we cannot express the invariant stating the list is circular. It is sort
-of implied by the constraints that the `next` pointer is never null, since memory
-is finite, the list will eventually reach a loop. However, we may have a lasso-shape,
-where the first few `message`s are not part of that loop.
+[//]: # {: .note }
+[//]: # While codex **ensures spatial memory safety** (no invalid pointer read/write),
+[//]: # it does **not ensure termination**.
+[//]: # Even with our given types, the `zeros_buffer` function may loop infinitely.
+[//]: # Indeed, we cannot express the invariant stating the list is circular. It is sort
+[//]: # of implied by the constraints that the `next` pointer is never null, since memory
+[//]: # is finite, the list will eventually reach a loop. However, we may have a lasso-shape,
+[//]: # where the first few `message`s are not part of that loop.
 
 Finally, this verification of `zeros_buffer` can be made not only on
 the C source code, but also on the compiled machine code, i.e. Codex
