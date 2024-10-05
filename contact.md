@@ -1,5 +1,5 @@
 ---
-title: Contact
+title: Jobs and Contact
 layout: home
 nav_order: 100
 ---
