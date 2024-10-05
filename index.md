@@ -80,5 +80,4 @@ The tool is currently a research prototype, but we believe that it
 would be very useful to C or systems programmers, which is why we are
 working on making it more mature (writing better documentation,
 improving user interface, etc.). Stay tuned for future updates, or
-just <a href="mailto:{{ 'matthieu.lemerre@cea.fr' | encode_email }}">contact us</a>
-if you are interested or want to help!
+just [contact us](/contact.html) if you are interested or want to help!
