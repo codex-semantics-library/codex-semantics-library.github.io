@@ -1,0 +1,332 @@
+
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script type='text/javascript'>
+    clicked = [];
+    
+    $(document).ready(function () {
+ 
+      $(".expnest").mouseup(function () {
+        $(this).css({"background-color": $(this).css("background-color"), "color": "black"});
+        $("#eidinfo" + $(this).attr("data-eid")).show();
+        clicked.push($(this));
+      });
+      
+      $(".expnest").hover(
+          function () {
+            if (clicked.length == 0) {
+                $(this).css({"background-color": $(this).css("background-color"), "color": "black"});
+                $("#eidinfo" + $(this).attr("data-eid")).show();
+            }
+          }, 
+          function () {
+            if (clicked.length == 0) {
+                $(this).removeAttr('style');
+                $("#eidinfo" + $(this).attr("data-eid")).hide();
+            }
+      });
+      
+    $(".code-container").mousedown(function (e) {
+        if ((e.offsetX <= e.target.clientWidth && e.offsetY <= e.target.clientHeight) || 
+            (e.target.clientWidth == 0 && e.target.clientHeight == 0)) {
+          clicked.forEach(c => {c.removeAttr('style'); $("#eidinfo" + c.attr("data-eid")).hide();});
+          clicked = [];
+        }
+    });
+    
+    });
+  </script>
+  <style>
+
+    .def {
+      display: none;
+    }
+
+    .expnest:hover+.expinfo>.def {
+      display: inline-block;
+    }
+
+    .expinfo {
+      border: 1px solid black;
+      border-radius: 12px;
+    }
+
+    .expinfo>.eidinfo {
+      display: none;
+    }
+
+    .expnest0:hover {
+      background-color: #DDFFD6;
+      color: #000000;
+    }
+
+    .expnest1:hover {
+      background-color: #FFC2C2;
+      color: #000000;
+    }
+
+    .expnest2:hover {
+      background-color: #ADF8FF;
+      color: #000000;
+    }
+
+    .expnest3:hover {
+      background-color: #FEFFD6;
+      color: #000000;
+    }
+
+    .expnest4:hover {
+      background-color: #DCD6FF;
+      color: #000000;
+    }
+
+    .expnest5:hover {
+      background-color: #FFE3C2;
+      color: #000000;
+    }
+
+    .expnest6:hover {
+      background-color: #C2D9FF;
+      color: #000000;
+    }
+
+    .expnest7:hover {
+      background-color: #F9C8E0;
+      color: #000000;
+    }
+
+    .expnest8:hover {
+      background-color: #DCD6FF;
+      color: #000000;
+    }
+
+    .expnest9:hover {
+      background-color: #BDB2FF;
+      color: #000000;
+    }
+
+    .expnest10:hover {
+      background-color: #FFECD6;
+      color: #000000;
+    }
+
+    .expnest11:hover {
+      background-color: #FFD6A5;
+      color: #000000;
+    }
+
+    .expnest12:hover {
+      background-color: #D6E6FF;
+      color: #000000;
+    }
+
+    .expnest13:hover {
+      background-color: #A0C4FF;
+      color: #000000;
+    }
+
+    .expnest14:hover {
+      background-color: #FBDAEB;
+      color: #000000;
+    }
+
+    .expnest15:hover {
+      background-color: #F7B6D7;
+      color: #000000;
+    }
+
+    .expnest0 {
+      background-color: #f0f0f0;
+    }
+
+    .font-expnest0 {
+      background-color: #DDFFD6;
+    }
+
+    .font-expnest1 {
+      background-color: #FFC2C2;
+    }
+
+    .font-expnest2 {
+      background-color: #ADF8FF;
+    }
+
+    .font-expnest3 {
+      background-color: #FEFFD6;
+    }
+
+    .font-expnest4 {
+      background-color: #DCD6FF;
+    }
+
+    .font-expnest5 {
+      background-color: #FFE3C2;
+    }
+
+    .font-expnest6 {
+      background-color: #C2D9FF;
+    }
+
+    .font-expnest7 {
+      background-color: #F9C8E0;
+    }
+  
+    .font-expnest8 {
+      background-color: #DCD6FF;
+    }
+
+    .font-expnest9 {
+      background-color: #BDB2FF;
+    }
+
+    .font-expnest10 {
+      background-color: #FFECD6;
+    }
+
+    .font-expnest11 {
+      background-color: #FFD6A5;
+    }
+
+    .font-expnest12 {
+      background-color: #D6E6FF;
+    }
+
+    .font-expnest13 {
+      background-color: #A0C4FF;
+    }
+
+    .font-expnest14 {
+      background-color: #FBDAEB;
+    }
+
+    .font-expnest15 {
+      background-color: #F7B6D7;
+    }
+
+    body {
+      /* background-color: #001B2E; */
+    }
+
+    .code-container {
+      font-family: monospace;
+      line-height: 1.5;
+      color: /* #FFF8EB; */ #000000;
+      overflow: auto;
+      height: 92vh;
+    }
+
+    .expinfo {
+      /* background-color: #ADB6C4; */
+      background-color: #eeeeee;
+      padding: 10px;
+      font-family: monospace;
+      line-height: 1.5;
+      color: #000;
+    }
+
+    .column {
+      float: left;
+      overflow: auto;
+    }
+
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* Syntax highlighting for C keywords */
+    .code-container .keyword {
+      color: #800080 /* 579dd6; 
+      font-weight: bold; */
+    }
+
+    .code-container .type {
+      color: #228b22;
+    }
+
+    .code-container .vardecl {
+      color: #a0522d;
+    }
+
+    /* Syntax highlighting for C comments */
+    .code-container .comment {
+      color: #6a9955;
+      /* green */
+      font-style: italic;
+    }
+
+    /* Syntax highlighting for C strings */
+    .code-container .string {
+      color: #ce9079;
+      /* red */
+    }
+
+    /* Syntax highlighting for C numbers */
+    .code-container .number {
+      color: #b5cea8;
+      /* orange */
+    }
+
+    /* Syntax highlighting for C preprocessor directives */
+    .code-container .preprocessor {
+      color: #c586c0;
+      /* gray */
+    }
+
+    /* Syntax highlighting for C functions */
+    .code-container .function-name {
+      color: #0000ff;
+    }
+
+    .scrollbar::-webkit-scrollbar-track
+    {
+      border: 1px solid black;
+      background-color: #FFF8EB;
+    }
+
+    .scrollbar::-webkit-scrollbar
+    {
+      width: 10px;
+    }
+
+    .scrollbar::-webkit-scrollbar-thumb
+    {
+      background-color: #ADB6C4;	
+    }
+  </style>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Frama-C/Codex Analysis results</title>
+</head>
+
+<body>
+  <div class="row">
+    <pre class="scrollbar column code-container" style="width: 45%; margin: 0px;">
+/* Generated by Frama-C */
+<a name="vi-global-main"></a><span class="type"><span class="type"><span class="type">int</span> <span class="vardecl"><span class="vardecl"><a data-eid="0" href="#vi-global-main" class="expnest expnest0 function-name">main</a></span>(<span class="type"><span class="type">int</span> <span class="vardecl">i</span></span>)</span></span></span>
+{
+  <span class="statement"><span class="type"><span class="type">int</span> <span class="vardecl">x</span></span> = <span data-eid="1" class="expnest expnest0"><span data-eid="2" class="expnest expnest0">i</span></span>;</span>
+  <span class="keyword">if</span> (<span data-eid="3" class="expnest expnest0"><span data-eid="4" class="expnest expnest1"><span data-eid="5" class="expnest expnest1">i</span></span> &gt; <span data-eid="6" class="expnest expnest1">8</span></span>) <span class="statement"><span data-eid="7" class="expnest expnest0">x</span> = <span data-eid="8" class="expnest expnest0">8</span>;</span>
+  <span class="keyword">return</span> <span data-eid="9" class="expnest expnest0"><span data-eid="10" class="expnest expnest0">x</span></span>;
+}
+
+
+</pre><div class="column expinfo" style="height: 92vh; width: 54%; padding: 0px;"><div class="scrollbar" style="padding: 10px; font-family: sans; background-color: #8C96A7; color: black; min-height: 5vh; max-height: 20vh; overflow: auto;">
+<div style="font-variant: small-caps">Unproved alarms:</div>
+<div style="font-variant: small-caps">Proved 0/0 alarms</div></div>
+<hr style="border: 1px solid black; margin: 0px;">
+<table style="width: 100%"> <tr> <th style="font-style: italic">/</th> <th>Name</th> <th>Type</th> <th>Value</th> </tr><tr class="font-expnest0 eidinfo" id="eidinfo1" style="display: none"><td>Expr</td> <td>i</td> <td>int</td> <td>[--..--]</td></tr>
+<tr class="font-expnest0 eidinfo" id="eidinfo2" style="display: none"><td>Lval</td> <td>i</td> <td>int</td></tr>
+<tr class="font-expnest0 eidinfo" id="eidinfo3" style="display: none"><td>Expr</td> <td>i > 8</td> <td>int</td> <td>{0; 1}</td></tr>
+<tr class="font-expnest1 eidinfo" id="eidinfo4" style="display: none"><td>Expr</td> <td>i</td> <td>int</td> <td>[--..--]</td></tr>
+<tr class="font-expnest1 eidinfo" id="eidinfo5" style="display: none"><td>Lval</td> <td>i</td> <td>int</td></tr>
+<tr class="font-expnest1 eidinfo" id="eidinfo6" style="display: none"><td>Expr</td> <td>8</td> <td>int</td> <td>{8}</td></tr>
+<tr class="font-expnest0 eidinfo" id="eidinfo7" style="display: none"><td>Lval</td> <td>x</td> <td>int</td></tr>
+<tr class="font-expnest0 eidinfo" id="eidinfo8" style="display: none"><td>Expr</td> <td>8</td> <td>int</td> <td>{8}</td></tr>
+<tr class="font-expnest0 eidinfo" id="eidinfo9" style="display: none"><td>Expr</td> <td>x</td> <td>int</td> <td>[-0x80000000..8]</td></tr>
+<tr class="font-expnest0 eidinfo" id="eidinfo10" style="display: none"><td>Lval</td> <td>x</td> <td>int</td></tr>
+<tr class="font-expnest0 eidinfo" id="eidinfo0" style="display: none"><td>Func</td> <td>main</td> <td>undefined ctype</td></tr>
+</table></div></body></html>
