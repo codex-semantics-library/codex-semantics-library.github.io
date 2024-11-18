@@ -8,9 +8,13 @@
   Overwrites:
     pages_top_size, collections_size, collection_entry,
     collection_key, collection_value, collection.
+  Most of this file is copied frem just_the_docs, the local changes are:
+    Remove id and class from nav element (class="site-nav" id="site-nav"), 
+    instead place them on the parent nav in components/sidebar.
+    This allows the script that shows/hide nav on mobile to work on our modified 
+    sidebar with TOC.
 {%- endcomment -%}
-
-<nav aria-label="Main" id="site-nav" class="site-nav">
+<nav>
   {% assign pages_top_size = site.html_pages
         | where_exp:"item", "item.title != nil"
         | where_exp:"item", "item.parent == nil"
