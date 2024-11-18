@@ -14,12 +14,12 @@ sidebar: toc
 # Quick start: verifying C code using Frama-C/Codex
 
 1. Download the latest binary release of Frama-C/Codex at https://github.com/codex-semantics-library/codex/releases/
-2. Write a small C function in file `test.c`: 
+2. Write a small C function in file `test.c`:
 ```c
 int main(int i) { int x = i; if(i > 8) x = 8; return x; }
 ```
 If GCC is not installed, use `test.i` instead of `test.c` (`.i` corresponds to already-preprocessed files).
-3. Launch the analysis and obtain a textual report of the analysis: 
+3. Launch the analysis and obtain a textual report of the analysis:
 ```sh
 ./frama_c_codex.exe -codex test.c -codex-exp-dump test.dump && cat test.dump
 ```
@@ -34,7 +34,7 @@ Proved 0/0 regular alarms
 Unproved 0 regular alarms and 0 additional alarms.
 Solved 0/0 user assertions, proved 0
 ```
-If you are using Emacs' compilation-mode (probably works also in other editors), you can click on each expression and they will bring you to the location in the file.
+If you are using Emacs' compilation-mode (probably works also in other editors), you can click on each expression, and they will bring you to the location in the file.
 4. Obtain an HTML report of the analysis:
    ```sh
    ./frama_c_codex.exe -codex test.c -codex-html-dump test.html
@@ -54,7 +54,7 @@ Happy verification!
 
 # Tutorial: [Spatial Memory Safety using Codex and TypedC](/docs/tutorial_oopsla2024.pdf)
 
-This is the tutorial accompagnying the prototype of our [OOPSLA 2024
+This is the tutorial accompanying the prototype of our [OOPSLA 2024
 research
 paper](/papers/2024-oopsla-typedc-dependent-nominal-physical-type-system.html). It
 covers all the steps necessary to use our tool to check if a C or

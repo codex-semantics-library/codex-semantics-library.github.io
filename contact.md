@@ -10,11 +10,11 @@ We often have *fully-funded* positions for talented and motivated research **int
 - sound static analysis by abstract interpretation (improving the heart of the analysis)
 - compilation and code transformation (e.g., porting the analysis to new languages)
 - applications to cybersecurity or reverse engineering (e.g., [verifying OS kernels from C or executable](/papers/2021-rtas-no-crash-no-exploit.html))
-- utilisability and user interface (e.g., how to present information to make usage of the tool more productive)
+- usability and user interface (e.g., how to present information to make usage of the tool more productive)
 
-Please contact us if you would like to join! CEA has as screening process that takes several months to complete, so do not hesitate to initiate contact early. 
+Please contact us if you would like to join! CEA has as screening process that takes several months to complete, so do not hesitate to initiate contact early.
 
-CEA is part of Université Paris-Saclay and is located at the heart of Plateau de Saclay, south of Paris, Europe's biggest research and industry cluster. Agencies like [Science Accueil](https://www.science-accueil.org/en/) or [Cité Internationale Universitaire de Paris](https://www.ciup.fr/en/) are available to help foreign candidates find their home and settle here. Most of us live either in the wooden and quiet southern suburbs of Paris or closer to the bustling historical center of the city. Paris is the capital of France, a metropolis of 12.5 million people and one of the most visited travel destinations in the world, in the heart of western Europe.
+CEA is part of [Université Paris-Saclay](https://www.universite-paris-saclay.fr/) and is located at the heart of the Plateau de Saclay, just south of Paris, Europe's biggest research and industry cluster. Agencies like [Science Accueil](https://www.science-accueil.org/en/) or [Cité Internationale Universitaire de Paris](https://www.ciup.fr/en/) are available to help foreign candidates find their home and settle here. Most of us live either in the wooden and quiet southern suburbs of Paris or closer to the bustling historical center of the city. Paris is the capital of France, a metropolis of 12.5 million people and one of the most visited travel destinations in the world, in the heart of western Europe.
 
 
 ## Using Codex
