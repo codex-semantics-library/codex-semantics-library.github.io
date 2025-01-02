@@ -193,6 +193,8 @@ that some monotonicity conditions are met.
 
 ## Further information
 
+- If you want to know more, the [**slides**](/assets/publications/slides/2024-oopsla-typedc-dependent-nominal-physical-typesystem.pdf) should be quite accessible.
+
 - Interested in using it? Be an early adopter, check the
 [**tutorial**](/docs/tutorial_oopsla2024.pdf) and try proving that your
 code is (spatially) memory-safe now!
@@ -204,5 +206,5 @@ code is (spatially) memory-safe now!
 which contains the version of Codex used by the artifact reviewers, as
 well as the benchmarks used.
 
-- To appear at
+- Appeared at
   [OOPSLA'2024](https://2024.splashcon.org/track/splash-2024-oopsla).

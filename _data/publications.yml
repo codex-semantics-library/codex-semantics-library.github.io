@@ -19,6 +19,7 @@
       easy-summary: /papers/2024-oopsla-typedc-dependent-nominal-physical-type-system.html
       pdf: /assets/publications/pdfs/2024-oopsla-full-with-appendices.pdf
       talk-slides: /assets/publications/slides/2024-oopsla-typedc-dependent-nominal-physical-typesystem.pdf
+      bibtex: /assets/publications/bibtex/2024-oopsla-typedc-dependent-nominal-typesystem.bib
 #      talk-video: TODO
       topics:
         - abstract interpretation
@@ -38,6 +39,7 @@
       artifact-custom-image-height: "70"
       easy-summary: /papers/2024-sas-trace-partitioning-as-an-optimization-problem.html
       pdf: /assets/publications/pdfs/2024-sas-tpop.pdf
+#      bibtex: TODO
 #      talk-slides: TODO
 #      talk-video: TODO
       topics:
