@@ -29,9 +29,9 @@ For a quick overview of how to use the library, see the [examples](/api/patricia
 See any of these for more details on this library, what it can do, some
 small examples and the full documentation.
 
-
-- [patricia-tree – v0.10.0](/api/patricia-tree/v0.10.0/) – latest version
-- [patricia-tree – v0.9.0](/api/patricia-tree/v0.9.0/)
+- [patricia-tree – v0.11.0](/api/patricia-tree/v0.11.0/) – 2025-01-27 – latest version
+- [patricia-tree – v0.10.0](/api/patricia-tree/v0.10.0/) – 2024-06-01
+- [patricia-tree – v0.9.0](/api/patricia-tree/v0.9.0/) – 2024-04-18
 - [patricia-tree – main](/api/patricia-tree/main/) – development version (unreleased)
 
 Changes between versions are listed in the

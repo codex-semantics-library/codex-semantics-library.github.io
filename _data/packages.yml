@@ -9,7 +9,7 @@ patricia-tree:
   repository-icon: "fab fa-github"
   # Latest version, show a warning documentation pages of other version, with a link to latest
   # A matching _data/api/<package>/<version> folder should exist.
-  latest-version: v0.10.0
+  latest-version: v0.11.0
   # Dev version (also issue a warning, but a different one)
   dev-version: main
   # Shields (img.shield.io) to decorate the package (rendered in _includes/shields.html)
