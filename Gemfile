@@ -8,3 +8,4 @@ gem "webrick"
 gem "jekyll-redirect-from"
 gem "jekyll-email-protect"
 gem "kramdown-math-katex"
+gem "therubyracer" # JS engine to run katex
