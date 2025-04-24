@@ -7,4 +7,4 @@ gem "github-pages"
 gem "webrick"
 gem "jekyll-redirect-from"
 gem "jekyll-email-protect"
-
+gem "kramdown-math-katex"
