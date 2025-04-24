@@ -19,6 +19,10 @@
       bibtex: /assets/publications/bibtex/2025-pldi-relational-abstractions-labeled-uf.bib
       easy-summary: /papers/2025-pldi-relational-abstractions-labeled-uf.html
       pdf-with-appendix: /assets/publications/pdfs/2025-pldi-relational-abstractions-labeled-uf-with-appendices.pdf
+      topics:
+        - relational abstract domain
+        - labeled union-find
+        - abstract interpretation
 - year: 2024
   publications:
     - title: "A Dependent Nominal Physical Type System for Static Analysis of Memory in Low Level Code"
