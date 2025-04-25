@@ -19,13 +19,13 @@ but imprecise, whereas the latter is very precise but cost-prohibitive
 (polyhedra has $$\mathcal O(2^{|\mathbb X|})$$ complexity).
 
 In the middle of this spectrum lie *weakly-relational abstractions*. They only
-store a select few relations between pairs of variables. For example, octagons
-store relations $$\pm x \pm y \leqslant c$$. These abstractions are faster than
+store relations between pairs of variables. For example, octagons
+store relations $$\pm x \pm y \leqslant c$$ for some constant $$c$$. These abstractions are faster than
 full relational domains, but still expensive, in large part due to having to compute
 a transitive closure to find all known relations, which costs $$\mathcal O(|\mathbb X|^3)$$.
 
 Thus, the central assumption of the paper can be expressed as **what if we do not need to compute
-this transitive closure?** More formally, we assume that the relation obtained on each path between
+this expensive transitive closure?** More formally, we assume that the relation obtained on each path between
 two variables is always the same. This allows eliminating the vast majority of relations, **we only need to
 store a spanning tree** and can still recover any arbitrary relation in constant time.
 
@@ -37,17 +37,18 @@ Fig. Graph of relations between variables. Each arrow represents a relation, lab
 Left is the initial configuration, middle is the computed closure, and right is a minimal spanning tree
 </center>
 
+## Labeled union-find
 
-## Contributions
-
-### Labeled union-find
-
-We extend the classical [union-find](https://en.wikipedia.org/wiki/Disjoint-set_data_structure) data
-structure by adding labels $$\mathbb L$$ (representing relations) to the parent edges. In order to
-properly adapt the union-find algorithms, these labels need an associative composition operation
-$$\mathbb ;$$, an inverse $$\cdot^{-1}$$ and a neutral element. That is to say, they must have a
-[**group structure**](https://en.wikipedia.org/wiki/Group_(mathematics)). This requirement also
-derives fairly naturally from our previous assumption (same relation on each path).
+We can use an extension of the classical
+[union-find](https://en.wikipedia.org/wiki/Disjoint-set_data_structure) data
+structure to represent this spanning tree. The extension proceeds by adding
+labels $$\mathbb L$$ (representing relations) to the parent edges, and is thus
+called *labeled union-find*. In order to properly adapt the union-find
+algorithms, these labels need an associative composition operation $$\mathbb
+;$$, an inverse $$\cdot^{-1}$$ and a neutral element. That is to say, they must
+have a [**group structure**](https://en.wikipedia.org/wiki/Group_(mathematics)).
+This requirement also derives fairly naturally from our previous assumption
+(same relation on each path).
 
 <img src="/assets/publications/imgs/2025-pldi-labeled-uf.svg"
 style="width:500px; display:block; margin-left:auto; margin-right:auto">
@@ -57,7 +58,7 @@ the "union" operation has been renamed "add_relation", and the get_relation oper
 is new.
 </center>
 
-### The labeled union-find relational abstraction
+## The labeled union-find relational abstraction
 
 When using labeled union-find to represent abstract relations between variables,
 the soundness of operations places strong requirements on the relations that
@@ -72,7 +73,7 @@ between equivalence classes. The following examples relations are suitable:
 However, we cannot use relations like bounded difference $$y - x \in [a:b]$$, as
 they are not injective. Doing so inevitably leads to precision loss.
 
-### Combining with other abstractions
+## Combining with other abstractions
 
 Labeled union-find groups variables into related class, which each point to the
 same representative. This can often be used to simplify other abstractions,
@@ -88,6 +89,34 @@ updated at once any time new information is learned.
 Labeled union-find can also help relational abstraction similarly, shrinking their size and thus their
 computation cost. Furthermore, it can be modified to detect any entailed equalities and notify other
 abstractions of these facts.
+
+## Examples
+
+We have implemented labeled union-find domains both in [Codex](https://codex.top),
+a non-relational analyzer, and in [Colibri2](https://colibri.frama-c.com/index.html), a constraint solver.
+
+In Codex, we found one of the main sources of improvements comes from relating
+simultaneously incremented loop counters. For instance, consider the following C snippet:
+```c
+int i = 0;
+int j = 4;
+while(i < 10) {
+    i += 1;
+    j += 3;
+}
+```
+Without labeled union-find, Codex learns that at the end of the loop, $$\mathtt{i} = 10$$,
+$$\mathtt{j} \in [4:+\infty]$$ and $$\mathtt{j} \equiv 1 \mathop{\mathtt{mod}} 3$$. However,
+with labeled union find and the TVPE relation, $$\mathtt{j} = 3\mathtt{i} + 4$$ is inferred.
+Thus, at the end of the loop, Codex knows $$\mathtt{j} = 34$$.
+
+In Colibri2, we were able to increase propagations when using constant difference
+alongside the interval domain. For example, instance, if $$f(x) = 2a+x+3b$$
+for some $$a,b$$, and if we know that $$f(4) < 10$$, then we can learn that
+$$f(9)^2 \leqslant 225$$ is unsatifsiable. This sort of reasoning seems easy, but
+in practice, a decision procedure for non linear-arithmetic is difficult to implement and costly.
+Using labeled union-find (to relate $$f(4)$$ and $$f(9)$$) enables solving some
+easy cases such as these.
 
 ## Going further
 
