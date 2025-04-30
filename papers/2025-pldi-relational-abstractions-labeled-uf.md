@@ -24,6 +24,8 @@ store relations $$\pm x \pm y \leqslant c$$ for some constant $$c$$. These abstr
 full relational domains, but still expensive, in large part due to having to compute
 a transitive closure to find all known relations, which costs $$\mathcal O(|\mathbb X|^3)$$.
 
+; XXX: Ca me semble faible comme but. Mieux vaut insister sur le fait d'avoir des domaines relationels plus faibles que tous les domaines actuels (et on fait non seulement ca, mais aussi on diminue le nombre de variables des domaines actuels)
+
 Thus, the central assumption of the paper can be expressed as **what if we do not need to compute
 this expensive transitive closure?** More formally, we assume that the relation obtained on each path between
 two variables is always the same. This allows eliminating the vast majority of relations, **we only need to
@@ -93,9 +95,9 @@ abstractions of these facts.
 ## Examples
 
 We have implemented labeled union-find domains both in [Codex](https://codex.top),
-a non-relational analyzer, and in [Colibri2](https://colibri.frama-c.com/index.html), a constraint solver.
+a sound static analyzer based on abstract interpretation, and in [Colibri2](https://colibri.frama-c.com/index.html), a constraint solver.
 
-In Codex, we found one of the main sources of improvements comes from relating
+Codex already performs constraint propagation using relations between the values computed by the program. However, the new domain can find new relations; in particular, an important source of improvement comes from relating
 simultaneously incremented loop counters. For instance, consider the following C snippet:
 ```c
 int i = 0;
