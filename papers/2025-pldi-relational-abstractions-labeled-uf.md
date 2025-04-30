@@ -24,6 +24,8 @@ store relations $$\pm x \pm y \leqslant c$$ for some constant $$c$$. These abstr
 polyhedra, but still expensive, in large part due to having to compute
 a transitive closure to find all known relations, which costs $$\mathcal O(|\mathbb X|^3)$$.
 
+; Il manque des idées clés comme la constraint factorization pour supprimer des variables des domaines existants
+
 Our goal is to find **a new family of relational abstract domains that are cheaper than the weakly-relational domains**. 
 For this, a central question is **can we compute the expensive transitive closure much more cheaply?** The answer is yes, if we assume that the relation obtained on each path between
 two variables is always the same. This allows eliminating the vast majority of relations, **we only need to
@@ -35,7 +37,7 @@ style="width:700px; display:block; margin-left:auto; margin-right:auto">
 
 <center>
 Fig. Graph of relations between variables. Each arrow represents a relation, labels have been omitted.
-Left is the initial configuration, middle is the computed closure, and right is a minimal spanning tree
+Left is the initial configuration, middle is the computed closure, and right is the minimal spanning tree that our domains only have to maintain.
 </center>
 
 ## Labeled union-find
