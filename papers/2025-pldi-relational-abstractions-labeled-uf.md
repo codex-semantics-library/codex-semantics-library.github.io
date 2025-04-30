@@ -100,12 +100,8 @@ a sound static analyzer based on abstract interpretation, and in [Colibri2](http
 Codex already performs constraint propagation using relations between the values computed by the program. However, the new domain can find new relations; in particular, an important source of improvement comes from relating
 simultaneously incremented loop counters. For instance, consider the following C snippet:
 ```c
-int i = 0;
-int j = 4;
-while(i < 10) {
-    i += 1;
-    j += 3;
-}
+int i = 0, j = 4;
+while(i < 10) { i += 1; j += 3; }
 ```
 Without labeled union-find, Codex learns that at the end of the loop, $$\mathtt{i} = 10$$,
 $$\mathtt{j} \in [4:+\infty]$$ and $$\mathtt{j} \equiv 1 \mathop{\mathtt{mod}} 3$$. However,
