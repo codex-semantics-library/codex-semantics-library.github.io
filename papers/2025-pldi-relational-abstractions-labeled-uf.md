@@ -16,20 +16,19 @@ which store numeric information on variables (like intervals $$x \in [0:5]$$), o
 abstraction*, which store relations between variables (like $$3x + 2y \leqslant -5z$$).
 The former is fast (complexity in $$\mathcal O(|\mathbb X|)$$ where $$|\mathbb X|$$ is the number of variables)
 but imprecise, whereas the latter is very precise but cost-prohibitive
-(polyhedra has $$\mathcal O(2^{|\mathbb X|})$$ complexity).
+(polyhedra has $$\mathcal O(2^{|\mathbb X|})$$ complexity). 
 
 In the middle of this spectrum lie *weakly-relational abstractions*. They only
 store relations between pairs of variables. For example, octagons
 store relations $$\pm x \pm y \leqslant c$$ for some constant $$c$$. These abstractions are faster than
-full relational domains, but still expensive, in large part due to having to compute
+polyhedra, but still expensive, in large part due to having to compute
 a transitive closure to find all known relations, which costs $$\mathcal O(|\mathbb X|^3)$$.
 
-; XXX: Ca me semble faible comme but. Mieux vaut insister sur le fait d'avoir des domaines relationels plus faibles que tous les domaines actuels (et on fait non seulement ca, mais aussi on diminue le nombre de variables des domaines actuels)
-
-Thus, the central assumption of the paper can be expressed as **what if we do not need to compute
-this expensive transitive closure?** More formally, we assume that the relation obtained on each path between
+Our goal is to find **a new family of relational abstract domains that are cheaper than the weakly-relational domains**. 
+For this, a central question is **can we compute the expensive transitive closure much more cheaply?** The answer is yes, if we assume that the relation obtained on each path between
 two variables is always the same. This allows eliminating the vast majority of relations, **we only need to
-store a spanning tree** and can still recover any arbitrary relation in constant time.
+store a spanning tree** and can still recover any arbitrary relation in amortized almost-constant time, using a variation 
+of the efficient union-find data structure.
 
 <img src="/assets/publications/imgs/2025-pldi-spanning-tree.svg"
 style="width:700px; display:block; margin-left:auto; margin-right:auto">
