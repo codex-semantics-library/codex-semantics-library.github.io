@@ -16,6 +16,8 @@
       venue-acronym: PLDI
       doi: 10.1145/3729298
       artifact: https://zenodo.org/records/15165896
+      artifact-evaluated-reusable: true
+      artifact-available: true
       bibtex: /assets/publications/bibtex/2025-pldi-relational-abstractions-labeled-uf.bib
       easy-summary: /papers/2025-pldi-relational-abstractions-labeled-uf.html
       pdf-with-appendix: /assets/publications/pdfs/2025-pldi-relational-abstractions-labeled-uf-with-appendices.pdf
