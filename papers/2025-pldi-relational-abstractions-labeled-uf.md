@@ -16,7 +16,7 @@ which store numeric information on variables (like intervals $$x \in [0:5]$$), o
 abstraction*, which store relations between variables (like $$3x + 2y \leqslant -5z$$).
 The former is fast (complexity in $$\mathcal O(|\mathbb X|)$$ where $$|\mathbb X|$$ is the number of variables)
 but imprecise, whereas the latter is very precise but cost-prohibitive
-(polyhedra has $$\mathcal O(2^{|\mathbb X|})$$ complexity). 
+(polyhedra has $$\mathcal O(2^{|\mathbb X|})$$ complexity).
 
 In the middle of this spectrum lie *weakly-relational abstractions*. They only
 store relations between pairs of variables. For example, octagons
@@ -24,12 +24,10 @@ store relations $$\pm x \pm y \leqslant c$$ for some constant $$c$$. These abstr
 polyhedra, but still expensive, in large part due to having to compute
 a transitive closure to find all known relations, which costs $$\mathcal O(|\mathbb X|^3)$$.
 
-; Il manque des idées clés comme la constraint factorization pour supprimer des variables des domaines existants
-
-Our goal is to find **a new family of relational abstract domains that are cheaper than the weakly-relational domains**. 
+Our goal is to find **a new family of relational abstract domains that are cheaper than the weakly-relational domains**.
 For this, a central question is **can we compute the expensive transitive closure much more cheaply?** The answer is yes, if we assume that the relation obtained on each path between
 two variables is always the same. This allows eliminating the vast majority of relations, **we only need to
-store a spanning tree** and can still recover any arbitrary relation in amortized almost-constant time, using a variation 
+store a spanning tree** and can still recover any arbitrary relation in amortized almost-constant time, using a variation
 of the efficient union-find data structure.
 
 <img src="/assets/publications/imgs/2025-pldi-spanning-tree.svg"
@@ -41,6 +39,18 @@ Left is the initial configuration, middle is the computed closure, and right is 
 </center>
 
 ## Labeled union-find
+
+<img src="/assets/publications/imgs/2025-pldi-labeled-uf-example.svg"
+style="width:700px; display:block; margin-left:auto; margin-right:auto">
+
+<center>
+Fig. Example of a labeled union-find data structure. Left is the actual data structure
+(each arrow is a pointer). Right is the implied transitive closure
+(each dashed arrow can be computed in constant time).
+At the bottom, we have an example of path compression:
+shortening the path from z to the representative r
+without changing the transitive closure (the dotted arrow is replaced by the dashed one).
+</center>
 
 We can use an extension of the classical
 [union-find](https://en.wikipedia.org/wiki/Disjoint-set_data_structure) data
@@ -88,6 +98,15 @@ only need to store intervals on representative elements, not on all variables, s
 recovered. If we know that $$y \xrightarrow{+2} x$$ and $$x \in [0:2]$$ then we do not need to store
 $$y \in [2:4]$$. This reduces storage cost and propagation time, since all related variables are
 updated at once any time new information is learned.
+
+<img src="/assets/publications/imgs/2025-pldi-factorization.svg"
+style="width:700px; display:block; margin-left:auto; margin-right:auto">
+<center>
+Fig. Using labeled union-find to factorize a non-relational abstraction.
+Left: without LUF, we store an interval value on all nodes of this term graph.
+Right: using LUF, we can group related nodes together and only store an interval value
+on the representative. We can recompute the values of other nodes as needed without precision loss.
+</center>
 
 Labeled union-find can also help relational abstraction similarly, shrinking their size and thus their
 computation cost. Furthermore, it can be modified to detect any entailed equalities and notify other
