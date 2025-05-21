@@ -42,6 +42,7 @@
       talk-slides: /assets/publications/slides/2024-oopsla-typedc-dependent-nominal-physical-typesystem.pdf
       bibtex: /assets/publications/bibtex/2024-oopsla-typedc-dependent-nominal-typesystem.bib
       #      talk-video: TODO
+      doi: 10.1145/3689712
       topics:
         - abstract interpretation
         - memory safety
@@ -63,6 +64,7 @@
       #      bibtex: TODO
       #      talk-slides: TODO
       #      talk-video: TODO
+      doi: 10.1007/978-3-031-74776-2_2
       topics:
         - abstract interpretation
         - trace partitioning
