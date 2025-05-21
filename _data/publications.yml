@@ -4,6 +4,27 @@
 #
 # Make sure all paths start with "/", espacially the easy-summary one,
 # otherwise the _layout/paper.html WILL break (it looks into this DB for a matching entry)
+- year: 2025
+  publications:
+    - title: Relational Abstractions Based on Labeled Union-Find
+      authors:
+        - name: Dorian Lesbre
+        - name: Matthieu Lemerre
+        - name: Hichem Rami Ait-El-Hara
+        - name: François Bobot
+      venue: 46th ACM-SIGPLAN Symposium on Programming Language Design and Implementation
+      venue-acronym: PLDI
+      doi: 10.1145/3729298
+      artifact: https://zenodo.org/records/15165896
+      artifact-evaluated-reusable: true
+      artifact-available: true
+      bibtex: /assets/publications/bibtex/2025-pldi-relational-abstractions-labeled-uf.bib
+      easy-summary: /papers/2025-pldi-relational-abstractions-labeled-uf.html
+      pdf-with-appendix: /assets/publications/pdfs/2025-pldi-relational-abstractions-labeled-uf-with-appendices.pdf
+      topics:
+        - relational abstract domain
+        - labeled union-find
+        - abstract interpretation
 - year: 2024
   publications:
     - title: "A Dependent Nominal Physical Type System for Static Analysis of Memory in Low Level Code"
@@ -15,12 +36,12 @@
       venue-acronym: OOPSLA
       artifact: https://zenodo.org/records/13383433
       artifact-evaluated-reusable: true
-      artifact-available: true      
+      artifact-available: true
       easy-summary: /papers/2024-oopsla-typedc-dependent-nominal-physical-type-system.html
       pdf: /assets/publications/pdfs/2024-oopsla-full-with-appendices.pdf
       talk-slides: /assets/publications/slides/2024-oopsla-typedc-dependent-nominal-physical-typesystem.pdf
       bibtex: /assets/publications/bibtex/2024-oopsla-typedc-dependent-nominal-typesystem.bib
-#      talk-video: TODO
+      #      talk-video: TODO
       topics:
         - abstract interpretation
         - memory safety
@@ -39,9 +60,9 @@
       artifact-custom-image-height: "70"
       easy-summary: /papers/2024-sas-trace-partitioning-as-an-optimization-problem.html
       pdf: /assets/publications/pdfs/2024-sas-tpop.pdf
-#      bibtex: TODO
-#      talk-slides: TODO
-#      talk-video: TODO
+      #      bibtex: TODO
+      #      talk-slides: TODO
+      #      talk-video: TODO
       topics:
         - abstract interpretation
         - trace partitioning

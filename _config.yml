@@ -38,4 +38,8 @@ exclude: [
 
 plugins:
   - jekyll-redirect-from
-  - jekyll-email-protect  
+  - jekyll-email-protect
+
+markdown: kramdown
+kramdown:
+  math_engine: katex
