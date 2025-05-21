@@ -15,7 +15,7 @@
       venue: 46th ACM-SIGPLAN Symposium on Programming Language Design and Implementation
       venue-acronym: PLDI
       doi: 10.1145/3729298
-      artifact: https://zenodo.org/records/15165896
+      artifact: https://zenodo.org/records/15261356
       artifact-evaluated-reusable: true
       artifact-available: true
       bibtex: /assets/publications/bibtex/2025-pldi-relational-abstractions-labeled-uf.bib
