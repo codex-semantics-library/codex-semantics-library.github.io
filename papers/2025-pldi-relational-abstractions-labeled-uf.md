@@ -48,7 +48,7 @@ distance between the element and the root of the tree, doing the
 analog of path compression in the union-find structure.
 
 Computing the relation between some variables may also require
-inversing relations; for instance, the relation between $y$ and $x$ is
+inversing relations; for instance, the relation between $$y$$ and $$x$$ is
 the composition of $$y = 2*r$$ and the inverse of $$x = 3*r+2$$,
 i.e. $$r = x/3 - 2/3$$, yielding $$y = 2/3 x - 4/3$$. In general, the
 labels thus have an assocative composition operation, and an inverse
@@ -70,10 +70,10 @@ allows to discover many suitable example of relations, such as:
 - Two Value per Equality (TVPE): $$ax + by + c = 0$$, with $$a,b,c \in \mathbb Z^3$$, $$\mathbb Q^3$$ or $$\mathbb R^3$$
 - Modular TVPE: $$y = ax + b\mathop{\texttt{mod}} 2^{64}$$ between 64-bit vectors with $$a$$ odd.
 - Xor and rotation: $$y = (x \mathop{\mathtt{xor}} c) \mathop{\mathtt{rot}} n$$ between fixed-size bitvector, which can encode many shifts
-- Linear transformations $$Y = A * X + B$$ where $Y$ and $X$ are vectors, and $A$ is an invertible matrix.
+- Linear transformations $$Y = A * X + B$$ where $$Y$$ and $$X$$ are vectors, and $$A$$ is an invertible matrix.
 
 However, labeled union-find cannot use relations like bounded
-difference $$y - x \in [a:b]$$, as they are not injective. Doing so
+difference $$a \le y - x \le b$$, as they are not injective. Doing so
 inevitably leads to precision loss.
 
 ## Combining with other abstractions
@@ -105,7 +105,7 @@ abstractions of these facts.
 
 ## Application
 
-Codex already performs [sophisticated constraint propagation](/2024-pldi-compiling-with-abstract-interpretation.html)
+Codex already performs [sophisticated constraint propagation](/papers/2024-pldi-compiling-with-abstract-interpretation.html)
 using relations between the values computed by the program. However, the new domain can find new relations, e.g. from relating simultaneously incremented loop counters:
 ```c
 int i = 0, j = 4;
