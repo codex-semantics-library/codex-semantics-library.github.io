@@ -20,6 +20,7 @@
       artifact-available: true
       bibtex: /assets/publications/bibtex/2025-pldi-relational-abstractions-labeled-uf.bib
       easy-summary: /papers/2025-pldi-relational-abstractions-labeled-uf.html
+      comment: "Also presented at NSAD 2024"      
       pdf-with-appendix: /assets/publications/pdfs/2025-pldi-relational-abstractions-labeled-uf-with-appendices.pdf
       topics:
         - relational abstract domain
