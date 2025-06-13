@@ -28,7 +28,7 @@ Our goal is to find **a new family of relational abstract domains that are cheap
 For this, a central question is **can we compute the expensive transitive closure much more cheaply?** The answer is yes, if we assume that the relation obtained on each path between
 two variables is always the same. This allows eliminating the vast majority of relations, **we only need to
 store a spanning tree** and can still recover any arbitrary relation in amortized almost-constant time, using a variation
-of the efficient [union-find](https://en.wikipedia.org/wiki/Disjoint-set_data_structure) data structure, that we call the **labeled union-find**. 
+of the efficient [union-find](https://en.wikipedia.org/wiki/Disjoint-set_data_structure) data structure, that we call the **labeled union-find**.
 
 ## The labeled union-find data structure
 
@@ -36,23 +36,24 @@ of the efficient [union-find](https://en.wikipedia.org/wiki/Disjoint-set_data_st
 style="width:400px; display:block; margin-left:auto; margin-right:auto">
 
 Similarly to the classical union-find, the labeled union-find
-represent a rooted tree (where each node points to its parents). The
-extension consists in adding labels $$\mathbb L$$ to the parent edges,
+is a rooted forest, i.e. a set of trees where each node points to its parent.
+The
+extension adds labels $$\mathbb L$$ to the parent edges,
 representing relations. In the figure above, these relations are
 affine constraints between two variables (of the form $$y = a*x +
 b$$). From this labeled union-find, it is easy to infer the relation
-between any two variables (if there is one) by composing or reversing
+between any two variables (if there is one, i.e. when they are in the same tree) by composing or reversing
 relations. For instance, from $$z = y - 1$$ and $$y = 2 * r$$, we can
 deduce that $$z = 2*r - 1$$. While computing this, we can shrink the
-distance between the element and the root of the tree, doing the
+distance between the element $$z$$ and the root of the tree $$r$$, doing the
 analog of path compression in the union-find structure.
 
 Computing the relation between some variables may also require
-inversing relations; for instance, the relation between $$y$$ and $$x$$ is
+inverting relations; for instance, the relation between $$y$$ and $$x$$ is
 the composition of $$y = 2*r$$ and the inverse of $$x = 3*r+2$$,
-i.e. $$r = x/3 - 2/3$$, yielding $$y = 2/3 x - 4/3$$. In general, the
-labels thus have an assocative composition operation, and an inverse
-operation, i.e., must have a a [**group
+i.e. $$\displaystyle r = \frac x 3 - \frac 2 3$$, yielding $$\displaystyle y = \frac 2 3 x - \frac 4 3$$. In general, the
+labels thus have an associative composition operation, and an inverse
+operation. Formally, labels must have a [**group
 structure**](https://en.wikipedia.org/wiki/Group_(mathematics)).  This
 requirement also derives fairly naturally from our previous assumption
 (same relation on each path).
@@ -64,7 +65,7 @@ When using labeled union-find to represent abstract relations between
 variables, the soundness of operations places strong requirements on
 the relations that can be used. We show that these relations **must
 correspond to injective functions** between equivalence classes. This
-allows to discover many suitable example of relations, such as:
+allows to discover many suitable examples of relations, such as:
 
 - Constant offset: relations of the form $$y = x + b$$ for some constant $$b$$
 - Two Value per Equality (TVPE): $$ax + by + c = 0$$, with $$a,b,c \in \mathbb Z^3$$, $$\mathbb Q^3$$ or $$\mathbb R^3$$
@@ -93,10 +94,10 @@ The abstraction has also been implemented in the [Colibri2](https://colibri.fram
 
 ## Combining with other abstractions
 
-Labeled union-find groups variables into related class, which each
-point to the same representative. This can be used both to provide new
-information to other parts of the analysis, or to simplify other
-abstractions: instead of computing relations between individual
+Labeled union-find groups variables into related classes, which each
+point to the same representative. This can not only be used to provide new
+information to other parts of the analysis, but also simplify other
+abstractions. Instead of computing relations between individual
 variables, we can just compute relations between groups of variables
 related by labeled union-find.
 
@@ -109,7 +110,7 @@ updated at once any time new information is learned.
 <img src="/assets/publications/imgs/2025-pldi-factorization.svg"
 style="width:700px; display:block; margin-left:auto; margin-right:auto">
 <center>
-Fig. Using labeled union-find to factorize a non-relational abstraction. On the left, we associate an interval 
+Fig. Using labeled union-find to factorize a non-relational abstraction. On the left, we associate an interval
 to every node in the graph. On the right, we can group related nodes and only store an interval value
 on the representative. The values of other nodes are recomputed as needed without precision loss.
 </center>
