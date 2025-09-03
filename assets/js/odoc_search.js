@@ -49,7 +49,7 @@ window.onload = function () {
             // The url is instead relative to the library toplevel
             base_url.replace(/^\.\.\//, "") +
             // Removing package-name from full URL (given relative to the package level)
-            entry.url.replace(/^patricia\-tree\//, "");
+            entry.url.replace(/^.+?\//, "");
           search_result.innerHTML = entry.html;
           search_results.appendChild(search_result);
         };
