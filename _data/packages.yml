@@ -1,3 +1,17 @@
+codex:
+  name: Codex
+  description: Main Codex Library
+  repository: https://github.com/codex-semantics-library/codex
+  repository-icon: "fab fa-github"
+  latest-version: v1.0
+  shields:
+    - shield: https://img.shields.io/badge/OCaml-4.14-blue?logo=ocaml&logoColor=white
+      link: https://github.com/codex-semantics-library/codex/blob/main/dune-project
+      alt-text: OCaml versions
+    - shield: https://img.shields.io/github/license/codex-semantics-library/codex
+      link: https://github.com/codex-semantics-library/codex/blob/main/LICENSE
+      alt-text: License
+
 patricia-tree:
   # Pretty name to print in headers
   name: "Patricia Tree"
