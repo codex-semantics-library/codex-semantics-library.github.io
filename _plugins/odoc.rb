@@ -75,8 +75,10 @@ module OdocPlugin
         'nav_exclude' => true,
         'search_exclude' => true,
         'katex' => data["uses_katex"],
+        'breadcrumbs' => false,
       }
       if path.length == 1 then
+        @data['title'] = package
         @data['parent'] = 'API'
       end
       # # If the current version matches the package latest version

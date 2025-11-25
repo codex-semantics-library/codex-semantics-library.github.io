@@ -8,41 +8,41 @@ css: ["api", "pygments"]
 <script src="/assets/js/highlight.pack.js"></script>
 <script>hljs.highlightAll();</script>
 
-<div id="wrapper" class="hfeed">
-  {% comment %} ==== Breadcrumbs ==== {% endcomment %}
-  <nav class="breadcrumb-nav" aria-label="breadcrumb">
-    <ol class="breadcrumb-nav-list">
-      {% assign breadcrumbs = page.url | split: "/" | shift %}
-      {% for b in breadcrumbs %}
-      {% capture path %}{{ path }}/{{ b }}{% endcapture %}
-      {% if forloop.first %}
-      {% assign name = "API" %}
+{% comment %} ==== Breadcrumbs ==== {% endcomment %}
+<nav class="breadcrumb-nav" aria-label="breadcrumb">
+  <ol class="breadcrumb-nav-list">
+    {% assign breadcrumbs = page.url | split: "/" | shift %}
+    {% for b in breadcrumbs %}
+    {% capture path %}{{ path }}/{{ b }}{% endcapture %}
+    {% if forloop.first %}
+    {% assign name = "API" %}
+    {% else %}
+    {% assign name = b %}
+    {% endif %}
+    <li class="breadcrumb-nav-list-item">
+      {% if forloop.last == false %}
+      <a class="nav-link" href="{{ path }}"> {{ name }} </a>
       {% else %}
-      {% assign name = b %}
+      <span>{{ name }}</span>
       {% endif %}
-      <li class="breadcrumb-nav-list-item">
-        {% if forloop.last == false %}
-        <a class="nav-link" href="{{ path }}"> {{ name }} </a>
-        {% else %}
-        <span>{{ name }}</span>
-        {% endif %}
-      </li>
-      {% endfor %}
-    </ol>
-  </nav>
+    </li>
+    {% endfor %}
+  </ol>
+</nav>
 
+<div id="wrapper" class="hfeed">
   {% comment %} ==== Search bar ==== {% endcomment %}
   <script>
-    let base_url = '/api/{{ page.package }}/{{ page.version }}/';
+    let base_url = '/api/{{ page.package }}/';
     let search_urls = [
-      '{{ site.url }}{{ site.baseurl }}/assets/js/sherlodoc-db/{{page.package}}.{{page.version}}.js',
+      '{{ site.url }}{{ site.baseurl }}/assets/js/sherlodoc-db/{{page.package}}.js',
       '{{ site.url }}{{ site.baseurl }}/assets/js/sherlodoc.js'
     ];
   </script>
   <script src="/assets/js/odoc_search.js"></script>
   <div class="odoc-search">
     <div class="search-inner">
-      <input class="search-bar" placeholder="🔎 Search {{ page.package}} API...">
+      <input class="search-bar" placeholder="🔎 Search package {{ page.package}}...">
       <div class="search-snake"></div>
       <div class="search-result"></div>
     </div>
