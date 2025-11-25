@@ -66,25 +66,28 @@ module OdocPlugin
       # (./package-name/vX.Y.Z/, ./package-name/vX.Y.Z/module, ./package-name/vX.Y.Z/index.html...)
       # The page at ./package-name is manually written (See api folder), it should list all versions.
       package = path[0]
-      version = path[1]
+      # version = path[1]
       @data = {
         'odoc' => data,
         'layout' => 'odoc',
         'package' => package,
-        'version' => version,
-        'title' => data["breadcrumbs"][-1]["name"] + " - " + package + "." + version,
+        'title' => data["breadcrumbs"][-1]["name"] + " - " + package,
         'nav_exclude' => true,
         'search_exclude' => true,
+        'katex' => data["uses_katex"],
       }
-      # If the current version matches the package latest version
-      if path[1] == site.data["packages"][package]["latest-version"] then
-        # Add a redirect from /api/package/latest/path to this page
-        path_clone = [package] + ["latest"] + path[2..-1] + ["index.html"]
-        @data["redirect_from"] = "api/" + path_clone.join('/')
-        # Add the current page info to search
-        @data['content'] = data["preamble"] + data["content"]
-        @data['search_exclude'] = false
+      if path.length == 1 then
+        @data['parent'] = 'API'
       end
+      # # If the current version matches the package latest version
+      # if path[1] == site.data["packages"][package]["latest-version"] then
+      #   # Add a redirect from /api/package/latest/path to this page
+      #   path_clone = [package] + ["latest"] + path[2..-1] + ["index.html"]
+      #   @data["redirect_from"] = "api/" + path_clone.join('/')
+      #   # Add the current page info to search
+      #   @data['content'] = data["preamble"] + data["content"]
+      #   @data['search_exclude'] = false
+      # end
     end
   end
 end
