@@ -14,14 +14,14 @@ module OdocPlugin
     safe true
 
     def find_all_pages(hash)
-      results = {}
+      results = []
       def iter(hash, path, results, depth)
         if hash then
           hash.each do |key, value|
             if key.end_with? 'html' and value.is_a? Hash and value.key?("header") then
-              results[path] = value
+              results << [path, key[..-5].gsub("_", " "), value] # strip html from key
             elsif value.is_a? Hash
-              npath = path+[key]
+              npath = path + [key]
               iter(value, npath, results, depth+1)
             else
               raise "Don't know what to do with #{key} value #{value}\n"
@@ -36,8 +36,8 @@ module OdocPlugin
     def generate(site)
       pages = find_all_pages(site.data['api'])
       site.data["odoc_pages"] = []
-      pages.each do |path, data|
-        page = OdocPage.new(site, path, data)
+      pages.each do |info|
+        page = OdocPage.new(site, info[0], info[1], info[2])
         site.pages << page
         site.data["odoc_pages"] << page
       end
@@ -45,11 +45,11 @@ module OdocPlugin
   end
 
   class OdocPage < Jekyll::Page
-    def initialize(site, path, data)
+    def initialize(site, path, name, data)
       @site = site
       @base = site.source
       @dir = "api/" + path.join('/')
-      @basename = 'index'
+      @basename = name
       @ext = '.html'
       @name = @basename + @ext
       # We can get package from the path thanks to the folder structure.
@@ -63,7 +63,7 @@ module OdocPlugin
         'katex' => data["uses_katex"],
         'breadcrumbs' => false,
       }
-      if path.length == 1 then
+      if path.length == 1 and name == "index" then
         @data['title'] = package
         @data['parent'] = 'API'
       else
