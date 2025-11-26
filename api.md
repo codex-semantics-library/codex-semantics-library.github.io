@@ -10,7 +10,7 @@ nav_order: 20
 
 # Packages
 
-Codex includes the following OCaml packages.
+Codex includes the following OCaml packages:
 
 {% for p in site.data.packages %}
 {% assign package = p[1] %}
@@ -24,7 +24,7 @@ Codex includes the following OCaml packages.
 
 <div class="linkrow">
 {%- if package.repository -%}
-<a href="{{package.repository}}">
+<a href="{{ package.repository }}">
 {% if package.repository-icon %}<i class="{{ package.repository-icon }}"></i>{% endif %}
 Repository</a>
 {%- endif -%}
