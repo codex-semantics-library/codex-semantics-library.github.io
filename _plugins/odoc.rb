@@ -78,7 +78,7 @@ module OdocPlugin
           @data['nav_exclude'] = true
           @data['title'] = item["name"] + " - " + package
         end
-        match = data["preamble"].match /<\!\-\-\s*new_order\s*=\s*(\D+)\s*\-\->/
+        match = data["preamble"].match /<\!\-\-\s*nav_order\s*=\s*(\d+)\s*\-\->/
         if match then
           @data["nav_order"] = match[1]
         end
