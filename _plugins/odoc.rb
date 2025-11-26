@@ -67,9 +67,21 @@ module OdocPlugin
         @data['title'] = package
         @data['parent'] = 'API'
       else
-        item = data["breadcrumbs"][-1]["name"]
-        @data['title'] = item + " - " + package
-        @data['nav_exclude'] = true
+        item = data["breadcrumbs"][-1]
+        match = data["preamble"].match /<\!\-\-\s*parent\s*=\s*"(\S*)"\s*\-\->/
+        if match then
+          if match[1] != "" then
+            @data['parent'] = match[1]
+          end
+          @data['title'] = item["name"]
+        else
+          @data['nav_exclude'] = true
+          @data['title'] = item["name"] + " - " + package
+        end
+        match = data["preamble"].match /<\!\-\-\s*new_order\s*=\s*(\D+)\s*\-\->/
+        if match then
+          @data["nav_order"] = match[1]
+        end
       end
     end
   end
