@@ -1,3 +1,78 @@
+codex:
+  # Pretty name to print in headers
+  name: "Codex Library"
+  # Description that appears on API page
+  description: |
+    Main codex library
+  # Link to repository
+  repository: https://github.com/codex-semantics-library/codex
+  repository-icon: "fab fa-github"
+  latest-version: v1.0-rc1
+  # Shields (img.shield.io) to decorate the package (rendered in _includes/shields.html)
+  shields:
+    # - shield: https://img.shields.io/badge/opam-patricia--tree-blue
+    #   link: https://opam.ocaml.org/packages/patricia-tree/
+    #   alt-text: Opam package
+    # - shield: https://img.shields.io/github/v/release/codex-semantics-library/codex
+    #   link: https://github.com/codex-semantics-library/codex/releases/
+    #   alt-text: Latest release
+    - shield: https://img.shields.io/badge/OCaml-4.14_--_5.x-blue?logo=ocaml&logoColor=white
+      link: https://github.com/codex-semantics-library/codex/blob/main/dune-project
+      alt-text: OCaml versions
+    - shield: https://img.shields.io/github/license/codex-semantics-library/codex
+      link: https://github.com/codex-semantics-library/codex/blob/main/LICENSE
+      alt-text: License
+
+frama-c-codex:
+  # Pretty name to print in headers
+  name: "Frama-C/Codex"
+  # Description that appears on API page
+  description: |
+    C frontend for codex, as a frama-c plugin
+  # Link to repository
+  repository: https://github.com/codex-semantics-library/codex
+  repository-icon: "fab fa-github"
+  latest-version: v1.0-rc1
+  # Shields (img.shield.io) to decorate the package (rendered in _includes/shields.html)
+  shields:
+    # - shield: https://img.shields.io/badge/opam-patricia--tree-blue
+    #   link: https://opam.ocaml.org/packages/patricia-tree/
+    #   alt-text: Opam package
+    # - shield: https://img.shields.io/github/v/release/codex-semantics-library/codex
+    #   link: https://github.com/codex-semantics-library/codex/releases/
+    #   alt-text: Latest release
+    - shield: https://img.shields.io/badge/OCaml-4.14_--_5.x-blue?logo=ocaml&logoColor=white
+      link: https://github.com/codex-semantics-library/codex/blob/main/dune-project
+      alt-text: OCaml versions
+    - shield: https://img.shields.io/github/license/codex-semantics-library/codex
+      link: https://github.com/codex-semantics-library/codex/blob/main/LICENSE
+      alt-text: License
+
+binsec-codex:
+  # Pretty name to print in headers
+  name: "Binsec/Codex"
+  # Description that appears on API page
+  description: |
+    Binary frontend for codex, as a binsec plugin
+  # Link to repository
+  repository: https://github.com/codex-semantics-library/codex
+  repository-icon: "fab fa-github"
+  latest-version: v1.0-rc1
+  # Shields (img.shield.io) to decorate the package (rendered in _includes/shields.html)
+  shields:
+    # - shield: https://img.shields.io/badge/opam-patricia--tree-blue
+    #   link: https://opam.ocaml.org/packages/patricia-tree/
+    #   alt-text: Opam package
+    # - shield: https://img.shields.io/github/v/release/codex-semantics-library/codex
+    #   link: https://github.com/codex-semantics-library/codex/releases/
+    #   alt-text: Latest release
+    - shield: https://img.shields.io/badge/OCaml-4.14_--_5.x-blue?logo=ocaml&logoColor=white
+      link: https://github.com/codex-semantics-library/codex/blob/main/dune-project
+      alt-text: OCaml versions
+    - shield: https://img.shields.io/github/license/codex-semantics-library/codex
+      link: https://github.com/codex-semantics-library/codex/blob/main/LICENSE
+      alt-text: License
+
 patricia-tree:
   # Pretty name to print in headers
   name: "Patricia Tree"
@@ -7,12 +82,7 @@ patricia-tree:
   # Link to repository
   repository: https://github.com/codex-semantics-library/patricia-tree
   repository-icon: "fab fa-github"
-  # Latest version, show a warning documentation pages of other version, with a link to latest
-  # A matching _data/api/<package>/<version> folder should exist.
   latest-version: v0.11.0
-  # Dev version (also issue a warning, but a different one)
-  dev-version: main
-  # Shields (img.shield.io) to decorate the package (rendered in _includes/shields.html)
   shields:
     - shield: https://img.shields.io/badge/opam-patricia--tree-blue
       link: https://opam.ocaml.org/packages/patricia-tree/
@@ -29,3 +99,28 @@ patricia-tree:
     - shield: https://img.shields.io/github/actions/workflow/status/codex-semantics-library/patricia-tree/ocaml.yml
       link: https://github.com/codex-semantics-library/patricia-tree/actions/workflows/ocaml.yml
       alt-text: Build
+
+cudd:
+  # Pretty name to print in headers
+  name: "Cudd.ml"
+  # Description that appears on API page
+  description: |
+    Minimal C to Ocaml bindings to the CUDD BDD library
+  # Link to repository
+  repository: https://git.frama-c.com/pub/codex/cudd.ml
+  repository-icon: "fab fa-gitlab"
+  latest-version: v0.1.3
+  # Shields (img.shield.io) to decorate the package (rendered in _includes/shields.html)
+  shields:
+    - shield: https://img.shields.io/badge/opam-cudd-blue
+      link: https://opam.ocaml.org/packages/cudd/
+      alt-text: Opam package
+    - shield: https://img.shields.io/gitlab/v/release/pub%2Fcodex%2Fcudd.ml?gitlab_url=https%3A%2F%2Fgit.frama-c.com
+      link: https://git.frama-c.com/pub/codex/cudd.ml/-/releases
+      alt-text: Latest release
+    - shield: https://img.shields.io/badge/OCaml-4.14_--_5.x-blue?logo=ocaml&logoColor=white
+      link: https://git.frama-c.com/pub/codex/cudd.ml/blob/main/dune-project
+      alt-text: OCaml versions
+    - shield: https://img.shields.io/gitlab/license/pub%2Fcodex%2Fcudd.ml?gitlab_url=https%3A%2F%2Fgit.frama-c.com
+      link: https://git.frama-c.com/pub/codex/cudd.ml/blob/main/LICENSE
+      alt-text: License
