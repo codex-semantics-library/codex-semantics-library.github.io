@@ -82,7 +82,7 @@ patricia-tree:
   # Link to repository
   repository: https://github.com/codex-semantics-library/patricia-tree
   repository-icon: "fab fa-github"
-  latest-version: v0.12.0
+  latest-version: v0.13.0
   shields:
     - shield: https://img.shields.io/badge/opam-patricia--tree-blue
       link: https://opam.ocaml.org/packages/patricia-tree/
