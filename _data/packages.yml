@@ -13,9 +13,9 @@ codex:
     - shield: https://img.shields.io/badge/opam-codex-blue
       link: https://opam.ocaml.org/packages/codex/
       alt-text: Opam package
-    # - shield: https://img.shields.io/github/v/release/codex-semantics-library/codex
-    #   link: https://github.com/codex-semantics-library/codex/releases/
-    #   alt-text: Latest release
+    - shield: https://img.shields.io/github/v/release/codex-semantics-library/codex
+      link: https://github.com/codex-semantics-library/codex/releases/
+      alt-text: Latest release
     - shield: https://img.shields.io/badge/OCaml-4.14_--_5.x-blue?logo=ocaml&logoColor=white
       link: https://github.com/codex-semantics-library/codex/blob/main/dune-project
       alt-text: OCaml versions
@@ -38,9 +38,9 @@ frama-c-codex:
     - shield: https://img.shields.io/badge/opam-frama__c__codex-blue
       link: https://opam.ocaml.org/packages/frama_c_codex/
       alt-text: Opam package
-    # - shield: https://img.shields.io/github/v/release/codex-semantics-library/codex
-    #   link: https://github.com/codex-semantics-library/codex/releases/
-    #   alt-text: Latest release
+    - shield: https://img.shields.io/github/v/release/codex-semantics-library/codex
+      link: https://github.com/codex-semantics-library/codex/releases/
+      alt-text: Latest release
     - shield: https://img.shields.io/badge/OCaml-4.14_--_5.x-blue?logo=ocaml&logoColor=white
       link: https://github.com/codex-semantics-library/codex/blob/main/dune-project
       alt-text: OCaml versions
@@ -63,9 +63,9 @@ binsec-codex:
     - shield: https://img.shields.io/badge/opam-binsec__codex-blue
       link: https://opam.ocaml.org/packages/binsec_codex/
       alt-text: Opam package
-    # - shield: https://img.shields.io/github/v/release/codex-semantics-library/codex
-    #   link: https://github.com/codex-semantics-library/codex/releases/
-    #   alt-text: Latest release
+    - shield: https://img.shields.io/github/v/release/codex-semantics-library/codex
+      link: https://github.com/codex-semantics-library/codex/releases/
+      alt-text: Latest release
     - shield: https://img.shields.io/badge/OCaml-4.14_--_5.x-blue?logo=ocaml&logoColor=white
       link: https://github.com/codex-semantics-library/codex/blob/main/dune-project
       alt-text: OCaml versions
