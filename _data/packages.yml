@@ -10,9 +10,9 @@ codex:
   latest-version: v1.0-rc1
   # Shields (img.shield.io) to decorate the package (rendered in _includes/shields.html)
   shields:
-    # - shield: https://img.shields.io/badge/opam-patricia--tree-blue
-    #   link: https://opam.ocaml.org/packages/patricia-tree/
-    #   alt-text: Opam package
+    - shield: https://img.shields.io/badge/opam-codex-blue
+      link: https://opam.ocaml.org/packages/codex/
+      alt-text: Opam package
     # - shield: https://img.shields.io/github/v/release/codex-semantics-library/codex
     #   link: https://github.com/codex-semantics-library/codex/releases/
     #   alt-text: Latest release
@@ -35,9 +35,9 @@ frama-c-codex:
   latest-version: v1.0-rc1
   # Shields (img.shield.io) to decorate the package (rendered in _includes/shields.html)
   shields:
-    # - shield: https://img.shields.io/badge/opam-patricia--tree-blue
-    #   link: https://opam.ocaml.org/packages/patricia-tree/
-    #   alt-text: Opam package
+    - shield: https://img.shields.io/badge/opam-frama__c__codex-blue
+      link: https://opam.ocaml.org/packages/frama_c_codex/
+      alt-text: Opam package
     # - shield: https://img.shields.io/github/v/release/codex-semantics-library/codex
     #   link: https://github.com/codex-semantics-library/codex/releases/
     #   alt-text: Latest release
@@ -60,9 +60,9 @@ binsec-codex:
   latest-version: v1.0-rc1
   # Shields (img.shield.io) to decorate the package (rendered in _includes/shields.html)
   shields:
-    # - shield: https://img.shields.io/badge/opam-patricia--tree-blue
-    #   link: https://opam.ocaml.org/packages/patricia-tree/
-    #   alt-text: Opam package
+    - shield: https://img.shields.io/badge/opam-binsec__codex-blue
+      link: https://opam.ocaml.org/packages/binsec_codex/
+      alt-text: Opam package
     # - shield: https://img.shields.io/github/v/release/codex-semantics-library/codex
     #   link: https://github.com/codex-semantics-library/codex/releases/
     #   alt-text: Latest release
