@@ -146,5 +146,5 @@ smallest contract justified by the analyzed code.
 
 - Read the [**paper**](/assets/publications/pdfs/2026-sttt-null-pointer-inference.pdf).
 - Published in the [International Journal on Software Tools for Technology Transfer](https://doi.org/10.1007/s10009-026-00846-0).
-- The method builds on the Typed C type system used by Codex for semantic
+- The method builds on the TypedC type system used by Codex for semantic
   type-checking of C and binary programs.
