@@ -4,6 +4,21 @@
 #
 # Make sure all paths start with "/", espacially the easy-summary one,
 # otherwise the _layout/paper.html WILL break (it looks into this DB for a matching entry)
+
+
+- year: 2026
+  publications:
+    - title: Inferring contracts by abstract interpretation with application to pointer nullness analysis
+      authors:
+        - name: Paul Robert
+        - name: Matthieu Lemerre
+        - name: Mihaela Sighireanu
+      easy-summary: /papers/2026-stt-null-pointer-inference.md
+      doi:  10.1007/s10009-026-00846-0
+      bibtex: /assets/publications/bibtex/2026-sttt-null-pointer-inference.bib
+      pdf: /assets/publications/pdfs/2026-sttt-null-pointer-inference.pdf
+
+
 - year: 2025
   publications:
     - title: Relational Abstractions Based on Labeled Union-Find
