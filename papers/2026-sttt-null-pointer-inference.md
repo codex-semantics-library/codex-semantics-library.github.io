@@ -74,9 +74,9 @@ contract violations that say "this value does not fit this type".
 The paper formalizes this idea on a small strongly typed imperative language.
 The language has two important operations:
 
-- `rcv tau`, where the program receives an unknown value satisfying type
+- `rcv` $$\tau$$, where the program receives an unknown value satisfying type
   $$\tau$$,
-- `send tau`, where the program must prove that a value satisfies type $$\tau$$.
+- `send` $$\tau$$, where the program must prove that a value satisfies type $$\tau$$.
 
 Function calls, function returns, memory reads, and memory writes can all be
 viewed through this receive/send interface. The specification determines the
