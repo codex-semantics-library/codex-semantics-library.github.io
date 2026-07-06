@@ -100,6 +100,33 @@ patricia-tree:
       link: https://github.com/codex-semantics-library/patricia-tree/actions/workflows/ocaml.yml
       alt-text: Build
 
+union-find-lattice:
+  # Pretty name to print in headers
+  name: "Union-find lattice"
+  # Description that appears on API page
+  description: |
+    Persistent union-find data-structures with lattice operations (order, meet, join)
+  # Link to repository
+  repository: https://github.com/codex-semantics-library/union-find-lattice
+  repository-icon: "fab fa-github"
+  latest-version: v0.14.0
+  shields:
+    - shield: https://img.shields.io/badge/opam-patricia--tree-blue
+      link: https://opam.ocaml.org/packages/union-find-lattice/
+      alt-text: Opam package
+    - shield: https://img.shields.io/github/v/release/codex-semantics-library/union-find-lattice
+      link: https://github.com/codex-semantics-library/union-find-lattice/releases/
+      alt-text: Latest release
+    - shield: https://img.shields.io/badge/OCaml-4.14_--_5.x-blue?logo=ocaml&logoColor=white
+      link: https://github.com/codex-semantics-library/union-find-lattice/blob/main/dune-project
+      alt-text: OCaml versions
+    - shield: https://img.shields.io/github/license/codex-semantics-library/union-find-lattice
+      link: https://github.com/codex-semantics-library/union-find-lattice/blob/main/LICENSE
+      alt-text: License
+    - shield: https://img.shields.io/github/actions/workflow/status/codex-semantics-library/union-find-lattice/ocaml.yml
+      link: https://github.com/codex-semantics-library/union-find-lattice/actions/workflows/ocaml.yml
+      alt-text: Build
+
 cudd:
   # Pretty name to print in headers
   name: "Cudd.ml"
