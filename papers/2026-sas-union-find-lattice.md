@@ -130,4 +130,4 @@ if an equality that holds in `v` is not found in `u`.
 - To be presented at the [Static Analysis Symposium (SAS) 2026 conference](https://pldi25.sigplan.org/).
 - Download the [**software artifact**](https://zenodo.org/records/21217874) from
   Zenodo to explore the code and see the performance results, or take a look at
-  the [union-find-lattice](https://codex.top/api/union-find-lattice/) library that we've released on [opam](https://opam.ocaml.org/)
+  the [union-find-lattice](https://codex.top/api/union-find-lattice/) library that we've released on [opam](https://opam.ocaml.org/).
