@@ -54,6 +54,7 @@
       artifact-available: true
       bibtex: /assets/publications/bibtex/2025-pldi-relational-abstractions-labeled-uf.bib
       easy-summary: /papers/2025-pldi-relational-abstractions-labeled-uf.html
+      comment: "Also presented at NSAD 2024"
       pdf-with-appendix: /assets/publications/pdfs/2025-pldi-relational-abstractions-labeled-uf-with-appendices.pdf
       talk-slides: /assets/publications/slides/2025-pldi-relational-abstractions-labeled-uf.pdf
       talk-video: https://www.youtube.com/watch?v=jE9qrvdxhNw
