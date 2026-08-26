@@ -82,7 +82,7 @@ patricia-tree:
   # Link to repository
   repository: https://github.com/codex-semantics-library/patricia-tree
   repository-icon: "fab fa-github"
-  latest-version: v0.14.0
+  latest-version: v0.15.0
   shields:
     - shield: https://img.shields.io/badge/opam-patricia--tree-blue
       link: https://opam.ocaml.org/packages/patricia-tree/
@@ -109,7 +109,7 @@ union-find-lattice:
   # Link to repository
   repository: https://github.com/codex-semantics-library/union-find-lattice
   repository-icon: "fab fa-github"
-  latest-version: v0.14.0
+  latest-version: v0.1.0
   shields:
     - shield: https://img.shields.io/badge/opam-patricia--tree-blue
       link: https://opam.ocaml.org/packages/union-find-lattice/
