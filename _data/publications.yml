@@ -13,7 +13,7 @@
         - name: Matthieu Lemerre
       venue: 33rd Static Analysis Symposium
       venue-acronym: SAS
-      # doi: TODO
+      doi: 10.1007/978-3-032-40374-2_5
       artifact: https://zenodo.org/records/21217874
       artifact-custom-image: "/assets/img/artifact_sas2024.png"
       artifact-custom-image-width: "122"
@@ -21,7 +21,7 @@
       bibtex: /assets/publications/bibtex/2026-sas-union-find-lattice.bib
       easy-summary: /papers/2026-sas-union-find-lattice.html
       pdf-with-appendix: /assets/publications/pdfs/2026-sas-union-find-lattice-with-appendices.pdf
-      # talk-slides: TODO
+      talk-slides: /assets/publications/slides/2026-sas-union-find-lattice.pdf
       # talk-video: TODO
       topics:
         - union-find
